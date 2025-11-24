@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanabi Test Report</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; }
+        .metric { display: inline-block; margin: 10px; padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; }
+        .metric.success { border-left: 4px solid #10B981; }
+        .metric.error { border-left: 4px solid #EF4444; }
+        .metric.warning { border-left: 4px solid #F59E0B; }
+        .timestamp { color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎸 Hanabi Test Report</h1>
+            <div class="timestamp">Generated: 2025. 10. 1. 오후 3:15:38</div>
+        </div>
+
+        <div class="metric error">
+            <h3>Total Tests</h3>
+            <div>28</div>
+        </div>
+
+        <div class="metric success">
+            <h3>Passed</h3>
+            <div>27</div>
+        </div>
+
+        <div class="metric error">
+            <h3>Failed</h3>
+            <div>1</div>
+        </div>
+
+        <div class="metric success">
+            <h3>Pass Rate</h3>
+            <div>96.4%</div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+            <h3>Status</h3>
+            <p>⚠️ 1 test(s) failed. Please review and fix the issues.</p>
+        </div>
+    </div>
+</body>
+</html>

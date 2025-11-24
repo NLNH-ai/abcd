@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlight Echoes - Indie Rock Band | Official Website</title>
+    
+     SEO Meta Tags 
+    <meta name="description" content="Starlight Echoes - An indie rock band creating cinematic soundscapes and emotional journeys through music. Listen to our latest tracks and discover our story.">
+    <meta name="keywords" content="Starlight Echoes, indie rock, band, music, cinematic, alternative rock, new music">
+    <meta name="author" content="Starlight Echoes">
+    
+     Open Graph Tags 
+    <meta property="og:title" content="Starlight Echoes - Indie Rock Band">
+    <meta property="og:description" content="Creating cinematic soundscapes and emotional journeys through music">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://starlightechoes.com">
+    <meta property="og:image" content="https://starlightechoes.com/og-image.jpg">
+    
+     Twitter Card 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Starlight Echoes - Indie Rock Band">
+    <meta name="twitter:description" content="Creating cinematic soundscapes and emotional journeys through music">
+    <meta name="twitter:image" content="https://starlightechoes.com/twitter-image.jpg">
+    
+     Structured Data 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Starlight Echoes",
+        "genre": "Indie Rock",
+        "description": "An indie rock band creating cinematic soundscapes and emotional journeys through music",
+        "url": "https://starlightechoes.com"
+    }
+    </script>
+    
+     Performance Hints 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://player.vimeo.com">
+    
+     Fonts 
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+     Tailwind CSS 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Bebas Neue', 'sans-serif'],
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        'deep-black': '#0A0A0A',
+                        'soft-white': '#F7F7F7',
+                        'energetic-red': '#FF6B6B',
+                        'electric-teal': '#4ECDC4',
+                        'dark-gray': '#1A1A1A',
+                        'medium-gray': '#2A2A2A',
+                        'light-gray': '#8A8A8A'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'typewriter': 'typewriter 3s steps(20) 1s forwards',
+                        'glitch': 'glitch 0.3s ease-in-out',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in-left': 'fadeInLeft 0.8s ease-out forwards',
+                        'fade-in-right': 'fadeInRight 0.8s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        typewriter: {
+                            '0%': { width: '0' },
+                            '100%': { width: '100%' }
+                        },
+                        glitch: {
+                            '0%, 100%': { transform: 'translate(0)' },
+                            '20%': { transform: 'translate(-2px, 2px)' },
+                            '40%': { transform: 'translate(-2px, -2px)' },
+                            '60%': { transform: 'translate(2px, 2px)' },
+                            '80%': { transform: 'translate(2px, -2px)' }
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        fadeInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom CSS for advanced effects */
+        :root {
+            --cursor-x: 0px;
+            --cursor-y: 0px;
+        }
+        
+        * {
+            cursor: none;
+        }
+        
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 107, 107, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .custom-cursor.hover {
+            transform: scale(2);
+            background: rgba(78, 205, 196, 0.8);
+        }
+        
+        .grain-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .video-overlay {
+            background: linear-gradient(45deg, rgba(10, 10, 10, 0.7), rgba(26, 26, 26, 0.5));
+        }
+        
+        .text-shadow-glow {
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+        
+        .hover-magnetic {
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .hover-magnetic:hover {
+            transform: translateY(-5px);
+        }
+        
+        .album-card {
+            perspective: 1000px;
+        }
+        
+        .album-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .album-card:hover .album-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .album-front, .album-back {
+            backface-visibility: hidden;
+        }
+        
+        .album-back {
+            transform: rotateY(180deg);
+        }
+        
+        .member-card {
+            perspective: 1000px;
+        }
+        
+        .member-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .member-card:hover .member-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .member-front, .member-back {
+            backface-visibility: hidden;
+        }
+        
+        .member-back {
+            transform: rotateY(180deg);
+        }
+        
+        .parallax {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        .theme-dark {
+            --bg-primary: #0A0A0A;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #F7F7F7;
+            --text-secondary: #8A8A8A;
+        }
+        
+        .theme-light {
+            --bg-primary: #F7F7F7;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #0A0A0A;
+            --text-secondary: #6A6A6A;
+        }
+        
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0A0A0A;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .waveform {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        
+        .waveform-bar {
+            width: 3px;
+            background: #FF6B6B;
+            animation: waveform 1.5s ease-in-out infinite;
+        }
+        
+        .waveform-bar:nth-child(2) { animation-delay: 0.1s; }
+        .waveform-bar:nth-child(3) { animation-delay: 0.2s; }
+        .waveform-bar:nth-child(4) { animation-delay: 0.3s; }
+        .waveform-bar:nth-child(5) { animation-delay: 0.4s; }
+        
+        @keyframes waveform {
+            0%, 100% { height: 10px; }
+            50% { height: 30px; }
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 107, 107, 0.3);
+            z-index: 1000;
+        }
+        
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        @media (max-width: 768px) {
+            * {
+                cursor: auto;
+            }
+            
+            .custom-cursor {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="font-body bg-deep-black text-soft-white overflow-x-hidden theme-dark">
+     Loading Screen 
+    <div id="loadingScreen" class="loading-screen">
+        <div class="text-center">
+            <div class="font-display text-4xl md:text-6xl text-energetic-red mb-8 animate-pulse">
+                STARLIGHT ECHOES
+            </div>
+            <div class="waveform">
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+            </div>
+        </div>
+    </div>
+    
+     Custom Cursor 
+    <div id="customCursor" class="custom-cursor"></div>
+    
+     Scroll Progress Indicator 
+    <div class="scroll-indicator">
+        <div id="scrollProgress" class="scroll-progress"></div>
+    </div>
+    
+     Navigation 
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-deep-black/80 backdrop-blur-md border-b border-medium-gray/30">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="font-display text-2xl text-energetic-red hover-magnetic" id="logo">
+                    STARLIGHT ECHOES
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#story" class="hover:text-energetic-red transition-colors hover-magnetic">Story</a>
+                    <a href="#music" class="hover:text-energetic-red transition-colors hover-magnetic">Music</a>
+                    <a href="#band" class="hover:text-energetic-red transition-colors hover-magnetic">Band</a>
+                    <a href="#contact" class="hover:text-energetic-red transition-colors hover-magnetic">Contact</a>
+                    <button id="themeToggle" class="px-4 py-2 bg-medium-gray hover:bg-energetic-red transition-colors rounded hover-magnetic">
+                        <span id="themeText">Daylight</span>
+                    </button>
+                </div>
+                <button id="mobileMenu" class="md:hidden text-2xl hover-magnetic">☰</button>
+            </div>
+        </div>
+    </nav>
+    
+     Mobile Menu 
+    <div id="mobileMenuPanel" class="fixed top-0 left-0 right-0 bottom-0 bg-deep-black/95 backdrop-blur-md z-40 transform -translate-x-full transition-transform duration-300">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+            <a href="#story" class="hover:text-energetic-red transition-colors mobile-menu-link">Story</a>
+            <a href="#music" class="hover:text-energetic-red transition-colors mobile-menu-link">Music</a>
+            <a href="#band" class="hover:text-energetic-red transition-colors mobile-menu-link">Band</a>
+            <a href="#contact" class="hover:text-energetic-red transition-colors mobile-menu-link">Contact</a>
+            <button id="mobileThemeToggle" class="px-6 py-3 bg-medium-gray hover:bg-energetic-red transition-colors rounded">
+                <span id="mobileThemeText">Daylight</span>
+            </button>
+        </div>
+    </div>
+    
+     Hero Section 
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+         Background Video 
+        <div class="absolute inset-0 z-0">
+            <iframe 
+                src="https://player.vimeo.com/video/158284739?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
+                class="absolute inset-0 w-full h-full object-cover"
+                style="width: 100vw; height: 100vh; transform: scale(1.1);"
+                frameborder="0" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen>
+            </iframe>
+            <div class="video-overlay absolute inset-0"></div>
+            <div class="grain-overlay"></div>
+        </div>
+        
+         Particle Canvas 
+        <canvas id="particleCanvas" class="absolute inset-0 z-10"></canvas>
+        
+         Hero Content 
+        <div class="relative z-20 text-center parallax">
+            <div class="mb-8">
+                <h1 class="font-display text-6xl md:text-8xl lg:text-9xl text-shadow-glow mb-4 opacity-0 animate-fade-in-up" style="animation-delay: 0.5s;">
+                    STARLIGHT
+                </h1>
+                <h1 class="font-display text-6xl md:text-8xl lg:text-9xl text-electric-teal text-shadow-glow opacity-0 animate-fade-in-up" style="animation-delay: 0.8s;">
+                    ECHOES
+                </h1>
+            </div>
+            <p class="font-heading text-xl md:text-2xl text-light-gray max-w-2xl mx-auto mb-12 opacity-0 animate-fade-in-up" style="animation-delay: 1.1s;">
+                Cinematic soundscapes that blur the line between dreams and reality
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 opacity-0 animate-fade-in-up" style="animation-delay: 1.4s;">
+                <button id="playButton" class="group px-8 py-4 bg-energetic-red hover:bg-electric-teal transition-all duration-300 rounded-full hover-magnetic flex items-center gap-3">
+                    <span class="text-lg font-medium">Play Latest</span>
+                    <div class="w-6 h-6 border-2 border-white rounded-full flex items-center justify-center">
+                        <div class="w-0 h-0 border-l-4 border-l-white border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1"></div>
+                    </div>
+                </button>
+                <button id="muteToggle" class="px-8 py-4 border-2 border-soft-white hover:bg-soft-white hover:text-deep-black transition-all duration-300 rounded-full hover-magnetic">
+                    <span id="muteText">Unmute</span>
+                </button>
+            </div>
+        </div>
+        
+         Scroll Indicator 
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+            <div class="w-6 h-10 border-2 border-soft-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-soft-white rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+    
+     Story Section 
+    <section id="story" class="py-20 bg-gradient-to-b from-deep-black to-dark-gray">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-display text-5xl md:text-7xl text-center mb-16 text-energetic-red fade-in-element">
+                    OUR STORY
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="fade-in-element">
+                        <img src="/placeholder.svg?height=400&width=600" 
+                             alt="Starlight Echoes band photo" 
+                             class="w-full h-80 object-cover rounded-lg shadow-2xl">
+                    </div>
+                    <div class="fade-in-element">
+                        <p class="font-heading text-xl leading-relaxed text-light-gray mb-6">
+                            Born from the intersection of <span class="text-energetic-red font-semibold">cinematic storytelling</span> 
+                            and raw musical emotion, Starlight Echoes emerged in the underground venues of the city.
+                        </p>
+                        <p class="font-heading text-xl leading-relaxed text-light-gray mb-6">
+                            We craft soundscapes that transport listeners through <span class="text-electric-teal font-semibold">emotional landscapes</span>, 
+                            blending indie rock with atmospheric elements that feel like stepping into a film noir.
+                        </p>
+                        <p class="font-heading text-xl leading-relaxed text-light-gray">
+                            Each song is a chapter in a larger narrative, exploring themes of <span class="text-energetic-red font-semibold">urban isolation</span>, 
+                            connection, and the search for meaning in the modern world.
+                        </p>
+                    </div>
+                </div>
+                
+                 Timeline 
+                <div class="relative">
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-energetic-red to-electric-teal"></div>
+                    
+                    <div class="space-y-16">
+                        <div class="flex items-center fade-in-element">
+                            <div class="w-1/2 pr-8 text-right">
+                                <h3 class="font-display text-2xl text-energetic-red mb-2">2019</h3>
+                                <p class="text-light-gray">Formation in underground venues</p>
+                            </div>
+                            <div class="w-4 h-4 bg-energetic-red rounded-full relative z-10"></div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+                        
+                        <div class="flex items-center fade-in-element">
+                            <div class="w-1/2 pr-8"></div>
+                            <div class="w-4 h-4 bg-electric-teal rounded-full relative z-10"></div>
+                            <div class="w-1/2 pl-8">
+                                <h3 class="font-display text-2xl text-electric-teal mb-2">2021</h3>
+                                <p class="text-light-gray">Debut EP "Neon Shadows" released</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center fade-in-element">
+                            <div class="w-1/2 pr-8 text-right">
+                                <h3 class="font-display text-2xl text-energetic-red mb-2">2023</h3>
+                                <p class="text-light-gray">First full album "Cinematic Dive"</p>
+                            </div>
+                            <div class="w-4 h-4 bg-energetic-red rounded-full relative z-10"></div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+                        
+                        <div class="flex items-center fade-in-element">
+                            <div class="w-1/2 pr-8"></div>
+                            <div class="w-4 h-4 bg-electric-teal rounded-full relative z-10"></div>
+                            <div class="w-1/2 pl-8">
+                                <h3 class="font-display text-2xl text-electric-teal mb-2">2024</h3>
+                                <p class="text-light-gray">International tour begins</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     Music Section 
+    <section id="music" class="py-20 bg-gradient-to-b from-dark-gray to-medium-gray">
+        <div class="container mx-auto px-6">
+            <h2 class="font-display text-5xl md:text-7xl text-center mb-16 text-electric-teal fade-in-element">
+                DISCOGRAPHY
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                 Album 1 
+                <div class="album-card fade-in-element">
+                    <div class="album-inner relative">
+                        <div class="album-front absolute inset-0">
+                            <div class="bg-gradient-to-br from-energetic-red to-deep-black p-8 rounded-lg h-80 flex flex-col justify-between">
+                                <div>
+                                    <h3 class="font-display text-3xl mb-2">CINEMATIC DIVE</h3>
+                                    <p class="text-light-gray">2023 • Full Album</p>
+                                </div>
+                                <div class="waveform">
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="album-back absolute inset-0">
+                            <div class="bg-deep-black p-6 rounded-lg h-80 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-heading text-xl mb-4 text-energetic-red">Track List</h4>
+                                    <ul class="space-y-2 text-sm text-light-gray">
+                                        <li>1. Opening Frame</li>
+                                        <li>2. Neon Reflections</li>
+                                        <li>3. Urban Solitude</li>
+                                        <li>4. Electric Dreams</li>
+                                        <li>5. Final Cut</li>
+                                    </ul>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button class="px-4 py-2 bg-energetic-red hover:bg-electric-teal transition-colors rounded text-sm hover-magnetic">Spotify</button>
+                                    <button class="px-4 py-2 bg-medium-gray hover:bg-electric-teal transition-colors rounded text-sm hover-magnetic">Apple</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Album 2 
+                <div class="album-card fade-in-element">
+                    <div class="album-inner relative">
+                        <div class="album-front absolute inset-0">
+                            <div class="bg-gradient-to-br from-electric-teal to-deep-black p-8 rounded-lg h-80 flex flex-col justify-between">
+                                <div>
+                                    <h3 class="font-display text-3xl mb-2">NEON SHADOWS</h3>
+                                    <p class="text-light-gray">2021 • EP</p>
+                                </div>
+                                <div class="waveform">
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="album-back absolute inset-0">
+                            <div class="bg-deep-black p-6 rounded-lg h-80 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-heading text-xl mb-4 text-electric-teal">Track List</h4>
+                                    <ul class="space-y-2 text-sm text-light-gray">
+                                        <li>1. Midnight Drive</li>
+                                        <li>2. City Lights</li>
+                                        <li>3. Echoes</li>
+                                        <li>4. Fade Out</li>
+                                    </ul>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button class="px-4 py-2 bg-electric-teal hover:bg-energetic-red transition-colors rounded text-sm hover-magnetic">Spotify</button>
+                                    <button class="px-4 py-2 bg-medium-gray hover:bg-energetic-red transition-colors rounded text-sm hover-magnetic">Apple</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Album 3 
+                <div class="album-card fade-in-element">
+                    <div class="album-inner relative">
+                        <div class="album-front absolute inset-0">
+                            <div class="bg-gradient-to-br from-medium-gray to-deep-black p-8 rounded-lg h-80 flex flex-col justify-between">
+                                <div>
+                                    <h3 class="font-display text-3xl mb-2">COMING SOON</h3>
+                                    <p class="text-light-gray">2025 • New Album</p>
+                                </div>
+                                <div class="text-6xl opacity-30">?</div>
+                            </div>
+                        </div>
+                        <div class="album-back absolute inset-0">
+                            <div class="bg-deep-black p-6 rounded-lg h-80 flex flex-col justify-center items-center text-center">
+                                <h4 class="font-heading text-xl mb-4 text-energetic-red">Stay Tuned</h4>
+                                <p class="text-light-gray mb-6">Our next chapter is being written...</p>
+                                <button class="px-6 py-3 bg-energetic-red hover:bg-electric-teal transition-colors rounded hover-magnetic">Notify Me</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     Band Section 
+    <section id="band" class="py-20 bg-gradient-to-b from-medium-gray to-deep-black">
+        <div class="container mx-auto px-6">
+            <h2 class="font-display text-5xl md:text-7xl text-center mb-16 text-energetic-red fade-in-element">
+                THE BAND
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+                 Member 1 
+                <div class="member-card fade-in-element">
+                    <div class="member-inner relative">
+                        <div class="member-front absolute inset-0">
+                            <div class="bg-dark-gray rounded-lg overflow-hidden h-96">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjNEVDREPEIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuyCiOycoO2DnDwvdGV4dD4KPHN2Zz4="
+                                     alt="안윤태"
+                                     class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-display text-2xl text-energetic-red mb-2">안윤태</h3>
+                                    <p class="text-light-gray mb-2">기타</p>
+                                    <div class="flex gap-2">
+                                        <span class="px-2 py-1 bg-energetic-red text-xs rounded animate-pulse-slow">Guitar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-back absolute inset-0">
+                            <div class="bg-deep-black p-6 rounded-lg h-96 flex flex-col justify-center">
+                                <p class="text-light-gray text-sm leading-relaxed mb-4">
+                                    기타의 매력적인 선율로 Starlight Echoes의 음악적 기반을 담당합니다.
+                                    안윤태의 기타 연주는 밴드의 핵심적인 사운드를 만들어냅니다.
+                                </p>
+                                <div class="flex gap-2 justify-center">
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-energetic-red transition-colors rounded hover-magnetic">📷</button>
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-energetic-red transition-colors rounded hover-magnetic">🐦</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Member 2 
+                <div class="member-card fade-in-element">
+                    <div class="member-inner relative">
+                        <div class="member-front absolute inset-0">
+                            <div class="bg-dark-gray rounded-lg overflow-hidden h-96">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRkY2QjZCIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuq5gOyngO2YuDwvdGV4dD4KPHN2Zz4="
+                                     alt="김진호"
+                                     class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-display text-2xl text-electric-teal mb-2">김진호</h3>
+                                    <p class="text-light-gray mb-2">기타</p>
+                                    <div class="flex gap-2">
+                                        <span class="px-2 py-1 bg-electric-teal text-xs rounded animate-pulse-slow">Guitar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-back absolute inset-0">
+                            <div class="bg-deep-black p-6 rounded-lg h-96 flex flex-col justify-center">
+                                <p class="text-light-gray text-sm leading-relaxed mb-4">
+                                    대기적인 사운드스케이프의 마스터. 김진호의 기타 연주는
+                                    우리의 시네마틱한 인디 록 접근법을 정의하는 음향적 풍경을 그려냅니다.
+                                </p>
+                                <div class="flex gap-2 justify-center">
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-electric-teal transition-colors rounded hover-magnetic">📷</button>
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-electric-teal transition-colors rounded hover-magnetic">🐦</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Member 3 
+                <div class="member-card fade-in-element">
+                    <div class="member-inner relative">
+                        <div class="member-front absolute inset-0">
+                            <div class="bg-dark-gray rounded-lg overflow-hidden h-96">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjNEVDREPEIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPu2ZqOywsO2dsDwvdGV4dD4KPHN2Zz4="
+                                     alt="황찬희"
+                                     class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-display text-2xl text-energetic-red mb-2">황찬희</h3>
+                                    <p class="text-light-gray mb-2">베이스</p>
+                                    <div class="flex gap-2">
+                                        <span class="px-2 py-1 bg-energetic-red text-xs rounded animate-pulse-slow">Bass</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-back absolute inset-0">
+                            <div class="bg-deep-black p-6 rounded-lg h-96 flex flex-col justify-center">
+                                <p class="text-light-gray text-sm leading-relaxed mb-4">
+                                    우리 사운드의 리듬적 기반. 황찬희의 베이스 라인은
+                                    가장 감정적인 순간들을 이끄는 깊고 맥동하는 심장박동을 제공합니다.
+                                </p>
+                                <div class="flex gap-2 justify-center">
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-energetic-red transition-colors rounded hover-magnetic">📷</button>
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-energetic-red transition-colors rounded hover-magnetic">🐦</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Member 4 
+                <div class="member-card fade-in-element">
+                    <div class="member-inner relative">
+                        <div class="member-front absolute inset-0">
+                            <div class="bg-dark-gray rounded-lg overflow-hidden h-96">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjOEE4QThBIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuuFuOqxrO2dbzwvdGV4dD4KPHN2Zz4="
+                                     alt="노건희"
+                                     class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-display text-2xl text-electric-teal mb-2">노건희</h3>
+                                    <p class="text-light-gray mb-2">드럼</p>
+                                    <div class="flex gap-2">
+                                        <span class="px-2 py-1 bg-electric-teal text-xs rounded animate-pulse-slow">Drums</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-back absolute inset-0">
+                            <div class="bg-deep-black p-6 rounded-lg h-96 flex flex-col justify-center">
+                                <p class="text-light-gray text-sm leading-relaxed mb-4">
+                                    우리의 시네마틱 여정 뒤의 맥박. 노건희의 역동적인 드럼 연주는
+                                    우리의 노래들이 영화 음악처럼 느껴지게 하는 긴장과 해방을 만들어냅니다.
+                                </p>
+                                <div class="flex gap-2 justify-center">
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-electric-teal transition-colors rounded hover-magnetic">📷</button>
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-electric-teal transition-colors rounded hover-magnetic">🐦</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="member-card fade-in-element">
+                    <div class="member-inner relative">
+                        <div class="member-front absolute inset-0">
+                            <div class="bg-dark-gray rounded-lg overflow-hidden h-96">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRkY2QjZCIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuydtOqyve2MgDwvdGV4dD4KPHN2Zz4="
+                                     alt="이경준"
+                                     class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-display text-2xl text-energetic-red mb-2">이경준</h3>
+                                    <p class="text-light-gray mb-2">피아노</p>
+                                    <div class="flex gap-2">
+                                        <span class="px-2 py-1 bg-energetic-red text-xs rounded animate-pulse-slow">Piano</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-back absolute inset-0">
+                            <div class="bg-deep-black p-6 rounded-lg h-96 flex flex-col justify-center">
+                                <p class="text-light-gray text-sm leading-relaxed mb-4">
+                                    우리 음악의 하모니와 깊이를 더하는 피아니스트. 이경준의 피아노 연주는
+                                    Starlight Echoes의 시네마틱한 사운드에 감성적인 레이어를 추가합니다.
+                                </p>
+                                <div class="flex gap-2 justify-center">
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-energetic-red transition-colors rounded hover-magnetic">📷</button>
+                                    <button class="w-8 h-8 bg-medium-gray hover:bg-energetic-red transition-colors rounded hover-magnetic">🐦</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Band Performance Video Section -->
+            <div class="mt-20 max-w-4xl mx-auto fade-in-element">
+                <h3 class="font-display text-3xl md:text-4xl text-center mb-8 text-electric-teal">
+                    LIVE PERFORMANCE
+                </h3>
+                <div class="bg-dark-gray rounded-lg overflow-hidden shadow-2xl">
+                    <video
+                        class="w-full h-auto"
+                        controls
+                        poster="/placeholder.svg?height=400&width=800">
+                        <source src="videos/band-performance.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="text-center text-light-gray mt-4 font-heading">
+                    Starlight Echoes - Live in Studio
+                </p>
+            </div>
+        </div>
+    </section>
+
+     Contact Section 
+    <section id="contact" class="py-20 bg-deep-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="font-display text-5xl md:text-7xl mb-8 text-electric-teal fade-in-element">
+                    GET IN TOUCH
+                </h2>
+                <p class="font-heading text-xl text-light-gray mb-12 fade-in-element">
+                    Ready to dive into the cinematic experience? Let's connect.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="fade-in-element hover-magnetic">
+                        <div class="bg-dark-gray p-8 rounded-lg">
+                            <h3 class="font-display text-2xl text-energetic-red mb-4">BOOKING</h3>
+                            <p class="text-light-gray">booking@starlightechoes.com</p>
+                        </div>
+                    </div>
+                    <div class="fade-in-element hover-magnetic">
+                        <div class="bg-dark-gray p-8 rounded-lg">
+                            <h3 class="font-display text-2xl text-electric-teal mb-4">PRESS</h3>
+                            <p class="text-light-gray">press@starlightechoes.com</p>
+                        </div>
+                    </div>
+                    <div class="fade-in-element hover-magnetic">
+                        <div class="bg-dark-gray p-8 rounded-lg">
+                            <h3 class="font-display text-2xl text-energetic-red mb-4">GENERAL</h3>
+                            <p class="text-light-gray">hello@starlightechoes.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center gap-6 mb-12 fade-in-element">
+                    <button class="w-12 h-12 bg-medium-gray hover:bg-energetic-red transition-colors rounded-full hover-magnetic">📷</button>
+                    <button class="w-12 h-12 bg-medium-gray hover:bg-energetic-red transition-colors rounded-full hover-magnetic">🐦</button>
+                    <button class="w-12 h-12 bg-medium-gray hover:bg-energetic-red transition-colors rounded-full hover-magnetic">📘</button>
+                    <button class="w-12 h-12 bg-medium-gray hover:bg-energetic-red transition-colors rounded-full hover-magnetic">🎵</button>
+                </div>
+                
+                <div class="fade-in-element">
+                    <button id="easterEggTrigger" class="px-8 py-4 bg-gradient-to-r from-energetic-red to-electric-teal hover:from-electric-teal hover:to-energetic-red transition-all duration-300 rounded-full hover-magnetic font-display text-lg">
+                        ENTER THE ECHO
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     Footer 
+    <footer class="py-12 bg-deep-black border-t border-medium-gray/30">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="font-display text-2xl text-energetic-red mb-4 md:mb-0">
+                    STARLIGHT ECHOES
+                </div>
+                <div class="text-light-gray text-sm">
+                    © 2025 Starlight Echoes. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+     Easter Egg Modal 
+    <div id="easterEggModal" class="fixed inset-0 bg-deep-black/95 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
+        <div class="text-center">
+            <div class="font-display text-4xl md:text-6xl text-energetic-red mb-8 animate-pulse">
+                HIDDEN TRACK UNLOCKED
+            </div>
+            <p class="text-light-gray mb-8">You've discovered our secret track "Midnight Echoes"</p>
+            <div class="flex justify-center gap-4">
+                <button id="playHiddenTrack" class="px-6 py-3 bg-energetic-red hover:bg-electric-teal transition-colors rounded hover-magnetic">
+                    Play Now
+                </button>
+                <button id="closeModal" class="px-6 py-3 bg-medium-gray hover:bg-light-gray hover:text-deep-black transition-colors rounded hover-magnetic">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let isMenuOpen = false;
+        let isDarkTheme = true;
+        let particles = [];
+        let canvas, ctx;
+        let mouseX = 0, mouseY = 0;
+        let konamiCode = [];
+        let konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up Up Down Down Left Right Left Right B A
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+        
+        function initializeApp() {
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('fade-out');
+            }, 2000);
+            
+            // Initialize components
+            initializeCustomCursor();
+            initializeParticles();
+            initializeScrollEffects();
+            initializeNavigation();
+            initializeThemeToggle();
+            initializeAnimations();
+            initializeEasterEggs();
+            
+            // Load theme preference
+            loadThemePreference();
+        }
+        
+        // Custom Cursor
+        function initializeCustomCursor() {
+            const cursor = document.getElementById('customCursor');
+            const hoverElements = document.querySelectorAll('button, a, .hover-magnetic');
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            });
+            
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                });
+            });
+        }
+        
+        // Particle System
+        function initializeParticles() {
+            canvas = document.getElementById('particleCanvas');
+            ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            // Create particles
+            for (let i = 0; i < 50; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    size: Math.random() * 2 + 1,
+                    opacity: Math.random() * 0.5 + 0.2
+                });
+            }
+            
+            animateParticles();
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                // Update position
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                // Wrap around edges
+                if (particle.x < 0) particle.x = canvas.width;
+                if (particle.x > canvas.width) particle.x = 0;
+                if (particle.y < 0) particle.y = canvas.height;
+                if (particle.y > canvas.height) particle.y = 0;
+                
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 107, 107, ${particle.opacity})`;
+                ctx.fill();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        // Scroll Effects
+        function initializeScrollEffects() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                
+                scrollProgress.style.width = scrollPercent + '%';
+                
+                // Parallax effect for hero content
+                const heroContent = document.querySelector('#hero .parallax');
+                if (heroContent) {
+                    const offset = scrollTop * 0.5;
+                    heroContent.style.transform = `translateY(${offset}px)`;
+                }
+            });
+            
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.fade-in-element').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+        }
+        
+        // Navigation
+        function initializeNavigation() {
+            const mobileMenuBtn = document.getElementById('mobileMenu');
+            const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+            
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    toggleMobileMenu();
+                });
+            });
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+        
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+            
+            if (isMenuOpen) {
+                mobileMenuPanel.style.transform = 'translateX(0)';
+            } else {
+                mobileMenuPanel.style.transform = 'translateX(-100%)';
+            }
+        }
+        
+        // Theme Toggle
+        function initializeThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+            
+            themeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        function toggleTheme() {
+            isDarkTheme = !isDarkTheme;
+            const body = document.body;
+            const themeText = document.getElementById('themeText');
+            const mobileThemeText = document.getElementById('mobileThemeText');
+            
+            if (isDarkTheme) {
+                body.classList.remove('theme-light');
+                body.classList.add('theme-dark');
+                themeText.textContent = 'Daylight';
+                mobileThemeText.textContent = 'Daylight';
+            } else {
+                body.classList.remove('theme-dark');
+                body.classList.add('theme-light');
+                themeText.textContent = 'Cinema';
+                mobileThemeText.textContent = 'Cinema';
+            }
+            
+            // Save preference
+            localStorage.setItem('starlightTheme', isDarkTheme ? 'dark' : 'light');
+        }
+        
+        function loadThemePreference() {
+            const savedTheme = localStorage.getItem('starlightTheme');
+            if (savedTheme === 'light') {
+                toggleTheme();
+            }
+        }
+        
+        // Animations
+        function initializeAnimations() {
+            // Logo glitch effect
+            const logo = document.getElementById('logo');
+            logo.addEventListener('click', () => {
+                logo.classList.add('animate-glitch');
+                setTimeout(() => {
+                    logo.classList.remove('animate-glitch');
+                }, 300);
+            });
+            
+            // Play button interaction
+            const playButton = document.getElementById('playButton');
+            playButton.addEventListener('click', () => {
+                playButton.innerHTML = `
+                    <span class="text-lg font-medium">Playing...</span>
+                    <div class="waveform">
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                    </div>
+                `;
+                
+                setTimeout(() => {
+                    playButton.innerHTML = `
+                        <span class="text-lg font-medium">Play Latest</span>
+                        <div class="w-6 h-6 border-2 border-white rounded-full flex items-center justify-center">
+                            <div class="w-0 h-0 border-l-4 border-l-white border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1"></div>
+                        </div>
+                    `;
+                }, 3000);
+            });
+            
+            // Mute toggle
+            const muteToggle = document.getElementById('muteToggle');
+            const muteText = document.getElementById('muteText');
+            let isMuted = true;
+            
+            muteToggle.addEventListener('click', () => {
+                isMuted = !isMuted;
+                muteText.textContent = isMuted ? 'Unmute' : 'Mute';
+            });
+        }
+        
+        // Easter Eggs
+        function initializeEasterEggs() {
+            // Konami Code
+            document.addEventListener('keydown', (e) => {
+                konamiCode.push(e.keyCode);
+                if (konamiCode.length > konamiSequence.length) {
+                    konamiCode.shift();
+                }
+                
+                if (konamiCode.length === konamiSequence.length && 
+                    konamiCode.every((code, index) => code === konamiSequence[index])) {
+                    triggerEasterEgg();
+                }
+            });
+            
+            // Easter egg button
+            const easterEggTrigger = document.getElementById('easterEggTrigger');
+            let clickCount = 0;
+            
+            easterEggTrigger.addEventListener('click', () => {
+                clickCount++;
+                if (clickCount >= 3) {
+                    triggerEasterEgg();
+                    clickCount = 0;
+                }
+            });
+            
+            // Modal controls
+            const modal = document.getElementById('easterEggModal');
+            const closeModal = document.getElementById('closeModal');
+            const playHiddenTrack = document.getElementById('playHiddenTrack');
+            
+            closeModal.addEventListener('click', () => {
+                modal.style.opacity = '0';
+                modal.style.pointerEvents = 'none';
+            });
+            
+            playHiddenTrack.addEventListener('click', () => {
+                alert('🎵 "Midnight Echoes" is now playing in your imagination! 🎵');
+                modal.style.opacity = '0';
+                modal.style.pointerEvents = 'none';
+            });
+        }
+        
+        function triggerEasterEgg() {
+            const modal = document.getElementById('easterEggModal');
+            modal.style.opacity = '1';
+            modal.style.pointerEvents = 'all';
+            
+            // Confetti effect
+            createConfetti();
+        }
+        
+        function createConfetti() {
+            const colors = ['#FF6B6B', '#4ECDC4', '#F7F7F7'];
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '10001';
+                confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear forwards`;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Add confetti animation to CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confettiFall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Performance optimization
+        let ticking = false;
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateAnimations);
+                ticking = true;
+            }
+        }
+        
+        function updateAnimations() {
+            // Update any continuous animations here
+            ticking = false;
+        }
+        
+        // Debounced resize handler
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Handle resize
+                if (canvas) {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+            }, 250);
+        });
+        
+        console.log('[v0] Starlight Echoes website initialized successfully');
+    </script>
+</body>
+</html>

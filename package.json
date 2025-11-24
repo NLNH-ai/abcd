@@ -1,0 +1,30 @@
+{
+  "name": "hanabi-band-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official website for indie rock band 하나비 (Hanabi)",
+  "scripts": {
+    "build": "echo 'No build required - static HTML website'",
+    "test": "node test-runner.js",
+    "test:browser": "echo 'Open test.html in browser for interactive tests'",
+    "start": "echo 'Open index.html in browser or use: npx http-server -p 8080'",
+    "dev": "npx http-server -p 8080 -o",
+    "lint": "echo 'No linting configured - consider adding htmlhint, eslint'",
+    "validate": "node test-runner.js"
+  },
+  "keywords": [
+    "music",
+    "indie-rock",
+    "band",
+    "korea",
+    "pwa",
+    "website"
+  ],
+  "author": "하나비 (Hanabi) Band",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

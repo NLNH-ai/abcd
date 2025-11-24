@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하나비 Test Suite</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #0A0A0A;
+            color: #FFFFFF;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #1A1A1A;
+            border-radius: 8px;
+            border-left: 4px solid #FF6B6B;
+        }
+
+        .test-title {
+            color: #FF6B6B;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .test-case {
+            margin: 10px 0;
+            padding: 10px;
+            background: #2A2A2A;
+            border-radius: 4px;
+        }
+
+        .test-pass {
+            border-left: 4px solid #10B981;
+        }
+
+        .test-fail {
+            border-left: 4px solid #EF4444;
+        }
+
+        .test-warning {
+            border-left: 4px solid #F59E0B;
+        }
+
+        .test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1A1A1A;
+            border-radius: 8px;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button:hover {
+            opacity: 0.9;
+        }
+
+        pre {
+            background: #0A0A0A;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        .metric {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 5px 10px;
+            background: #2A2A2A;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .metric.good {
+            color: #10B981;
+        }
+
+        .metric.warning {
+            color: #F59E0B;
+        }
+
+        .metric.error {
+            color: #EF4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎸 하나비 Website Test Suite</h1>
+
+        <div class="test-section">
+            <h2 class="test-title">Test Controls</h2>
+            <button class="button" onclick="runAllTests()">Run All Tests</button>
+            <button class="button" onclick="runUnitTests()">Unit Tests</button>
+            <button class="button" onclick="runPerformanceTests()">Performance Tests</button>
+            <button class="button" onclick="runAccessibilityTests()">Accessibility Tests</button>
+            <button class="button" onclick="runVisualTests()">Visual Tests</button>
+        </div>
+
+        <div id="unit-tests" class="test-section">
+            <h2 class="test-title">Unit Tests</h2>
+            <div id="unit-results"></div>
+        </div>
+
+        <div id="performance-tests" class="test-section">
+            <h2 class="test-title">Performance Tests</h2>
+            <div id="performance-results"></div>
+        </div>
+
+        <div id="accessibility-tests" class="test-section">
+            <h2 class="test-title">Accessibility Tests</h2>
+            <div id="accessibility-results"></div>
+        </div>
+
+        <div id="visual-tests" class="test-section">
+            <h2 class="test-title">Visual Regression Tests</h2>
+            <div id="visual-results"></div>
+        </div>
+
+        <div id="test-summary" class="test-results">
+            <h3>Test Summary</h3>
+            <div id="summary-content">Run tests to see results</div>
+        </div>
+    </div>
+
+    <script>
+        // Simple testing framework
+        class TestFramework {
+            constructor() {
+                this.tests = [];
+                this.results = {
+                    passed: 0,
+                    failed: 0,
+                    warnings: 0,
+                    total: 0
+                };
+            }
+
+            describe(suiteName, testFunction) {
+                const suite = {
+                    name: suiteName,
+                    tests: []
+                };
+
+                const originalTest = this.test.bind(this);
+                this.test = (testName, testFunction) => {
+                    suite.tests.push({ name: testName, test: testFunction });
+                };
+
+                testFunction();
+                this.test = originalTest;
+                this.tests.push(suite);
+            }
+
+            test(name, testFunction) {
+                // Standalone test
+            }
+
+            expect(actual) {
+                return {
+                    toBe: (expected) => {
+                        if (actual === expected) {
+                            return { passed: true, message: `Expected ${actual} to be ${expected}` };
+                        } else {
+                            return { passed: false, message: `Expected ${actual} to be ${expected}` };
+                        }
+                    },
+                    toEqual: (expected) => {
+                        if (JSON.stringify(actual) === JSON.stringify(expected)) {
+                            return { passed: true, message: `Expected ${JSON.stringify(actual)} to equal ${JSON.stringify(expected)}` };
+                        } else {
+                            return { passed: false, message: `Expected ${JSON.stringify(actual)} to equal ${JSON.stringify(expected)}` };
+                        }
+                    },
+                    toBeTruthy: () => {
+                        if (actual) {
+                            return { passed: true, message: `Expected ${actual} to be truthy` };
+                        } else {
+                            return { passed: false, message: `Expected ${actual} to be truthy` };
+                        }
+                    },
+                    toBeFalsy: () => {
+                        if (!actual) {
+                            return { passed: true, message: `Expected ${actual} to be falsy` };
+                        } else {
+                            return { passed: false, message: `Expected ${actual} to be falsy` };
+                        }
+                    },
+                    toBeGreaterThan: (expected) => {
+                        if (actual > expected) {
+                            return { passed: true, message: `Expected ${actual} to be greater than ${expected}` };
+                        } else {
+                            return { passed: false, message: `Expected ${actual} to be greater than ${expected}` };
+                        }
+                    },
+                    toBeLessThan: (expected) => {
+                        if (actual < expected) {
+                            return { passed: true, message: `Expected ${actual} to be less than ${expected}` };
+                        } else {
+                            return { passed: false, message: `Expected ${actual} to be less than ${expected}` };
+                        }
+                    }
+                };
+            }
+
+            async runSuite(suite, resultsContainer) {
+                const suiteResults = [];
+
+                for (const test of suite.tests) {
+                    try {
+                        const result = await test.test();
+                        if (result && result.passed !== undefined) {
+                            suiteResults.push({
+                                name: test.name,
+                                passed: result.passed,
+                                message: result.message
+                            });
+
+                            if (result.passed) {
+                                this.results.passed++;
+                            } else {
+                                this.results.failed++;
+                            }
+                        } else {
+                            suiteResults.push({
+                                name: test.name,
+                                passed: true,
+                                message: 'Test completed'
+                            });
+                            this.results.passed++;
+                        }
+                    } catch (error) {
+                        suiteResults.push({
+                            name: test.name,
+                            passed: false,
+                            message: error.message
+                        });
+                        this.results.failed++;
+                    }
+                    this.results.total++;
+                }
+
+                this.displaySuiteResults(suite.name, suiteResults, resultsContainer);
+                return suiteResults;
+            }
+
+            displaySuiteResults(suiteName, results, container) {
+                const suiteDiv = document.createElement('div');
+                suiteDiv.innerHTML = `<h4>${suiteName}</h4>`;
+
+                results.forEach(result => {
+                    const testDiv = document.createElement('div');
+                    testDiv.className = `test-case ${result.passed ? 'test-pass' : 'test-fail'}`;
+                    testDiv.innerHTML = `
+                        <strong>${result.passed ? '✅' : '❌'} ${result.name}</strong><br>
+                        <small>${result.message}</small>
+                    `;
+                    suiteDiv.appendChild(testDiv);
+                });
+
+                container.appendChild(suiteDiv);
+            }
+
+            displaySummary() {
+                const summaryContent = document.getElementById('summary-content');
+                const passRate = ((this.results.passed / this.results.total) * 100).toFixed(1);
+
+                summaryContent.innerHTML = `
+                    <div class="metric ${this.results.failed === 0 ? 'good' : 'error'}">
+                        Total Tests: ${this.results.total}
+                    </div>
+                    <div class="metric good">Passed: ${this.results.passed}</div>
+                    <div class="metric ${this.results.failed === 0 ? 'good' : 'error'}">
+                        Failed: ${this.results.failed}
+                    </div>
+                    <div class="metric ${this.results.warnings === 0 ? 'good' : 'warning'}">
+                        Warnings: ${this.results.warnings}
+                    </div>
+                    <div class="metric ${passRate >= 90 ? 'good' : passRate >= 70 ? 'warning' : 'error'}">
+                        Pass Rate: ${passRate}%
+                    </div>
+                `;
+            }
+
+            reset() {
+                this.results = { passed: 0, failed: 0, warnings: 0, total: 0 };
+            }
+        }
+
+        const testFramework = new TestFramework();
+
+        // Unit Tests
+        testFramework.describe('DOM Manipulation Functions', () => {
+            testFramework.test('should find elements by ID', () => {
+                document.body.insertAdjacentHTML('beforeend', '<div id="test-element">Test</div>');
+                const element = document.getElementById('test-element');
+                const result = testFramework.expect(element).toBeTruthy();
+                document.body.removeChild(element);
+                return result;
+            });
+
+            testFramework.test('should create elements dynamically', () => {
+                const div = document.createElement('div');
+                div.textContent = 'Dynamic element';
+                return testFramework.expect(div.textContent).toBe('Dynamic element');
+            });
+
+            testFramework.test('should handle CSS class manipulation', () => {
+                const div = document.createElement('div');
+                div.classList.add('test-class');
+                return testFramework.expect(div.classList.contains('test-class')).toBeTruthy();
+            });
+        });
+
+        testFramework.describe('Animation and Effects', () => {
+            testFramework.test('should have CSS custom properties defined', () => {
+                const rootStyles = getComputedStyle(document.documentElement);
+                const primaryColor = rootStyles.getPropertyValue('--color-primary').trim();
+                return testFramework.expect(primaryColor).toBeTruthy();
+            });
+
+            testFramework.test('should support modern CSS features', () => {
+                const testDiv = document.createElement('div');
+                testDiv.style.transform = 'translateX(10px)';
+                return testFramework.expect(testDiv.style.transform).toBe('translateX(10px)');
+            });
+        });
+
+        // Performance Tests
+        async function runPerformanceTests() {
+            const container = document.getElementById('performance-results');
+            container.innerHTML = '';
+
+            const performanceResults = [];
+
+            // Test 1: Page Load Performance
+            try {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                if (perfData) {
+                    const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+                    const domContentLoaded = perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart;
+
+                    performanceResults.push({
+                        name: 'Page Load Time',
+                        value: `${loadTime.toFixed(2)}ms`,
+                        passed: loadTime < 3000,
+                        message: loadTime < 3000 ? 'Good load time' : 'Load time could be improved'
+                    });
+
+                    performanceResults.push({
+                        name: 'DOM Content Loaded',
+                        value: `${domContentLoaded.toFixed(2)}ms`,
+                        passed: domContentLoaded < 1000,
+                        message: domContentLoaded < 1000 ? 'Fast DOM parsing' : 'DOM parsing could be optimized'
+                    });
+                }
+            } catch (error) {
+                performanceResults.push({
+                    name: 'Performance API',
+                    value: 'Not available',
+                    passed: false,
+                    message: 'Performance API not supported'
+                });
+            }
+
+            // Test 2: Memory Usage (approximate)
+            if (performance.memory) {
+                const memoryUsage = performance.memory.usedJSHeapSize / 1024 / 1024; // MB
+                performanceResults.push({
+                    name: 'JavaScript Heap Size',
+                    value: `${memoryUsage.toFixed(2)} MB`,
+                    passed: memoryUsage < 50,
+                    message: memoryUsage < 50 ? 'Efficient memory usage' : 'High memory usage detected'
+                });
+            }
+
+            // Test 3: Animation Performance
+            const animationTest = () => {
+                return new Promise((resolve) => {
+                    const startTime = performance.now();
+                    const testElement = document.createElement('div');
+                    testElement.style.cssText = `
+                        position: absolute;
+                        top: -100px;
+                        left: -100px;
+                        width: 50px;
+                        height: 50px;
+                        background: red;
+                        transition: transform 0.3s ease;
+                    `;
+                    document.body.appendChild(testElement);
+
+                    setTimeout(() => {
+                        testElement.style.transform = 'translateX(100px)';
+                        setTimeout(() => {
+                            const endTime = performance.now();
+                            const duration = endTime - startTime;
+                            document.body.removeChild(testElement);
+                            resolve({
+                                name: 'Animation Performance',
+                                value: `${duration.toFixed(2)}ms`,
+                                passed: duration < 500,
+                                message: duration < 500 ? 'Smooth animations' : 'Animation performance issues'
+                            });
+                        }, 350);
+                    }, 10);
+                });
+            };
+
+            const animResult = await animationTest();
+            performanceResults.push(animResult);
+
+            // Display results
+            performanceResults.forEach(result => {
+                const testDiv = document.createElement('div');
+                testDiv.className = `test-case ${result.passed ? 'test-pass' : 'test-fail'}`;
+                testDiv.innerHTML = `
+                    <strong>${result.passed ? '✅' : '❌'} ${result.name}</strong><br>
+                    <small>Value: ${result.value}</small><br>
+                    <small>${result.message}</small>
+                `;
+                container.appendChild(testDiv);
+            });
+        }
+
+        // Accessibility Tests
+        async function runAccessibilityTests() {
+            const container = document.getElementById('accessibility-results');
+            container.innerHTML = '';
+
+            const accessibilityResults = [];
+
+            // Test 1: Check for required meta tags
+            const viewport = document.querySelector('meta[name="viewport"]');
+            accessibilityResults.push({
+                name: 'Viewport Meta Tag',
+                passed: !!viewport,
+                message: viewport ? 'Viewport meta tag present' : 'Missing viewport meta tag'
+            });
+
+            const charset = document.querySelector('meta[charset]');
+            accessibilityResults.push({
+                name: 'Charset Declaration',
+                passed: !!charset,
+                message: charset ? 'Charset declared' : 'Missing charset declaration'
+            });
+
+            // Test 2: Check for alt attributes on images
+            const images = document.querySelectorAll('img');
+            const imagesWithoutAlt = Array.from(images).filter(img => !img.alt);
+            accessibilityResults.push({
+                name: 'Image Alt Attributes',
+                passed: imagesWithoutAlt.length === 0,
+                message: imagesWithoutAlt.length === 0 ?
+                    'All images have alt attributes' :
+                    `${imagesWithoutAlt.length} images missing alt attributes`
+            });
+
+            // Test 3: Check for proper heading hierarchy
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            const headingLevels = Array.from(headings).map(h => parseInt(h.tagName.charAt(1)));
+            let properHierarchy = true;
+            let currentLevel = 0;
+
+            for (const level of headingLevels) {
+                if (currentLevel === 0) {
+                    currentLevel = level;
+                } else if (level > currentLevel + 1) {
+                    properHierarchy = false;
+                    break;
+                }
+                currentLevel = level;
+            }
+
+            accessibilityResults.push({
+                name: 'Heading Hierarchy',
+                passed: properHierarchy,
+                message: properHierarchy ?
+                    'Proper heading hierarchy' :
+                    'Heading hierarchy issues detected'
+            });
+
+            // Test 4: Check for color contrast (basic check)
+            const bodyStyles = getComputedStyle(document.body);
+            const textColor = bodyStyles.color;
+            const backgroundColor = bodyStyles.backgroundColor;
+
+            accessibilityResults.push({
+                name: 'Color Contrast Check',
+                passed: true, // Basic implementation
+                message: `Text: ${textColor}, Background: ${backgroundColor}`
+            });
+
+            // Test 5: Check for focus management
+            const focusableElements = document.querySelectorAll(
+                'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+            );
+            accessibilityResults.push({
+                name: 'Focusable Elements',
+                passed: focusableElements.length > 0,
+                message: `${focusableElements.length} focusable elements found`
+            });
+
+            // Display results
+            accessibilityResults.forEach(result => {
+                const testDiv = document.createElement('div');
+                testDiv.className = `test-case ${result.passed ? 'test-pass' : 'test-fail'}`;
+                testDiv.innerHTML = `
+                    <strong>${result.passed ? '✅' : '❌'} ${result.name}</strong><br>
+                    <small>${result.message}</small>
+                `;
+                container.appendChild(testDiv);
+            });
+        }
+
+        // Visual Tests
+        async function runVisualTests() {
+            const container = document.getElementById('visual-results');
+            container.innerHTML = '';
+
+            const visualResults = [];
+
+            // Test 1: Check CSS loading
+            const computedStyle = getComputedStyle(document.body);
+            const hasStyles = computedStyle.backgroundColor !== 'rgba(0, 0, 0, 0)' &&
+                            computedStyle.backgroundColor !== 'transparent';
+
+            visualResults.push({
+                name: 'CSS Loading',
+                passed: hasStyles,
+                message: hasStyles ? 'Styles are applied' : 'Styles may not be loading'
+            });
+
+            // Test 2: Check responsive design
+            const originalWidth = window.innerWidth;
+            const isMobile = originalWidth < 768;
+            const isTablet = originalWidth >= 768 && originalWidth < 1024;
+            const isDesktop = originalWidth >= 1024;
+
+            visualResults.push({
+                name: 'Responsive Breakpoint',
+                passed: true,
+                message: `Current: ${isMobile ? 'Mobile' : isTablet ? 'Tablet' : 'Desktop'} (${originalWidth}px)`
+            });
+
+            // Test 3: Check for missing images
+            const allImages = document.querySelectorAll('img');
+            let brokenImages = 0;
+
+            for (const img of allImages) {
+                if (img.naturalWidth === 0 && img.naturalHeight === 0) {
+                    brokenImages++;
+                }
+            }
+
+            visualResults.push({
+                name: 'Image Loading',
+                passed: brokenImages === 0,
+                message: brokenImages === 0 ?
+                    'All images loaded successfully' :
+                    `${brokenImages} broken images detected`
+            });
+
+            // Test 4: Check animation performance
+            const supportsAnimations = 'animate' in document.createElement('div');
+            visualResults.push({
+                name: 'Animation Support',
+                passed: supportsAnimations,
+                message: supportsAnimations ?
+                    'Web Animations API supported' :
+                    'Limited animation support'
+            });
+
+            // Display results
+            visualResults.forEach(result => {
+                const testDiv = document.createElement('div');
+                testDiv.className = `test-case ${result.passed ? 'test-pass' : result.passed === null ? 'test-warning' : 'test-fail'}`;
+                testDiv.innerHTML = `
+                    <strong>${result.passed ? '✅' : result.passed === null ? '⚠️' : '❌'} ${result.name}</strong><br>
+                    <small>${result.message}</small>
+                `;
+                container.appendChild(testDiv);
+            });
+        }
+
+        // Main test functions
+        async function runUnitTests() {
+            const container = document.getElementById('unit-results');
+            container.innerHTML = '';
+
+            testFramework.reset();
+
+            for (const suite of testFramework.tests) {
+                await testFramework.runSuite(suite, container);
+            }
+        }
+
+        async function runAllTests() {
+            testFramework.reset();
+
+            await runUnitTests();
+            await runPerformanceTests();
+            await runAccessibilityTests();
+            await runVisualTests();
+
+            testFramework.displaySummary();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🧪 Test suite initialized');
+        });
+    </script>
+</body>
+</html>

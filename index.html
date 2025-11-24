@@ -1,0 +1,1500 @@
+﻿<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하나비 - Indie Rock Band | Official Website</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="하나비 - 시네마틱한 사운드스케이프와 감정적 여정을 통해 음악을 만드는 인디 록 밴드">
+    <meta name="keywords" content="하나비, 인디 록, 밴드, 음악, 시네마틱, 얼터너티브 록, 윤태, 진호, 찬희, 경준, 건희">
+    <meta name="author" content="하나비 (Hanabi)">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hanabi-band.com">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="하나비 - Indie Rock Band | Official Website">
+    <meta property="og:description" content="시네마틱한 사운드스케이프와 감정적 여정을 통해 음악을 만드는 인디 록 밴드 하나비의 공식 웹사이트">
+    <meta property="og:image" content="./images/앨범 표지 1.png">
+    <meta property="og:url" content="https://hanabi-band.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="하나비 (Hanabi)">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="하나비 - Indie Rock Band">
+    <meta name="twitter:description" content="시네마틱한 사운드스케이프와 감정적 여정을 통해 음악을 만드는 인디 록 밴드">
+    <meta name="twitter:image" content="./images/앨범 표지 1.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "하나비 (Hanabi)",
+        "description": "시네마틱한 사운드스케이프와 감정적 여정을 통해 음악을 만드는 인디 록 밴드",
+        "genre": ["Indie Rock", "Alternative Rock", "Cinematic Rock"],
+        "url": "https://hanabi-band.com",
+        "logo": "./images/앨범 표지 1.png",
+        "image": "./images/앨범 표지 1.png",
+        "foundingDate": "2024",
+        "member": [
+            {
+                "@type": "Person",
+                "name": "윤태",
+                "roleName": "Guitar"
+            },
+            {
+                "@type": "Person",
+                "name": "김진호",
+                "roleName": "Guitar"
+            },
+            {
+                "@type": "Person",
+                "name": "황찬희",
+                "roleName": "Bass"
+            },
+            {
+                "@type": "Person",
+                "name": "이경준"
+            },
+            {
+                "@type": "Person",
+                "name": "김건희"
+            }
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "booking",
+            "email": "booking@하나비.com"
+        },
+        "sameAs": [
+            "https://instagram.com/hanabi_band",
+            "https://youtube.com/hanabi_band"
+        ]
+    }
+    </script>
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="msapplication-TileColor" content="#FF6B6B">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Suppress Tailwind production warning for this demo site
+        console.warn = function (msg) {
+            if (msg && msg.includes && msg.includes('tailwindcss.com should not be used in production')) {
+                return;
+            }
+            console.error(msg);
+        };
+    </script>
+
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'primary': 'var(--color-primary)',
+                        'secondary': 'var(--color-secondary)',
+                        'tertiary': 'var(--color-tertiary)',
+                        'dark': 'var(--color-dark)',
+                        'darker': 'var(--color-darker)',
+                        'light-gray': 'var(--color-light-gray)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="font-body bg-darker text-white opening-active">
+    <!-- 오프닝 영상 오버레이 -->
+    <div class="opening-overlay" id="openingOverlay">
+        <video class="opening-video" id="openingVideo" autoplay playsinline>
+            <source src="videos/하나비_밴드_오프닝_영상_제작.mp4" type="video/mp4">
+            브라우저에서 비디오를 지원하지 않습니다.
+        </video>
+    </div>
+
+    <!-- 메인 컨텐츠 -->
+    <div class="main-content" id="mainContent">
+        <!-- 테마 토글 버튼 -->
+        <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+            <span id="themeIcon">🌙</span>
+        </button>
+
+        <!-- 액체 전환 효과 -->
+        <div class="liquid-transition" id="liquidTransition"></div>
+
+        <!-- Enhanced Navigation -->
+        <nav class="fixed top-0 left-0 right-0 z-50 bg-darker/95 backdrop-blur-md border-b border-gray-800 shadow-lg"
+            role="navigation" aria-label="메인 네비게이션">
+            <!-- Progress Bar -->
+            <div class="h-1 bg-gray-800">
+                <div id="scrollProgress"
+                    class="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-300"
+                    style="width: 0%"></div>
+            </div>
+
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="font-display text-2xl text-gradient font-bold nav-logo cursor-pointer" role="banner"
+                        onclick="scrollToTop()">
+                        하나비
+                    </div>
+
+                    <!-- Desktop Navigation with Active States -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#hero" class="nav-link active text-primary transition-all duration-300 relative group"
+                            data-section="hero" aria-label="홈으로 이동">
+                            <span>Home</span>
+                            <div
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform duration-300 group-hover:scale-x-110">
+                            </div>
+                        </a>
+                        <a href="#story" class="nav-link hover:text-primary transition-all duration-300 relative group"
+                            data-section="story" aria-label="스토리 섹션으로 이동">
+                            <span>Story</span>
+                            <div
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100">
+                            </div>
+                        </a>
+                        <a href="#music"
+                            class="nav-link hover:text-secondary transition-all duration-300 relative group"
+                            data-section="music" aria-label="음악 섹션으로 이동">
+                            <span>Music</span>
+                            <div
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100">
+                            </div>
+                        </a>
+                        <a href="#fanzone"
+                            class="nav-link hover:text-primary transition-all duration-300 relative group"
+                            data-section="fanzone" aria-label="팬존 섹션으로 이동">
+                            <span>Fan Zone</span>
+                            <div
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100">
+                            </div>
+                        </a>
+                        <a href="#band" class="nav-link hover:text-primary transition-all duration-300 relative group"
+                            data-section="band" aria-label="밴드 멤버 섹션으로 이동">
+                            <span>Band</span>
+                            <div
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100">
+                            </div>
+                        </a>
+                        <a href="#contact"
+                            class="nav-link hover:text-secondary transition-all duration-300 relative group"
+                            data-section="contact" aria-label="연락처 섹션으로 이동">
+                            <span>Contact</span>
+                            <div
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100">
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button with Animation -->
+                    <button id="mobileMenu"
+                        class="md:hidden relative w-8 h-8 flex flex-col justify-center items-center transition-all duration-300"
+                        aria-label="모바일 메뉴 토글" aria-expanded="false">
+                        <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300"></span>
+                        <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 mt-1"></span>
+                        <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 mt-1"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section Breadcrumb -->
+            <div class="hidden md:block px-6 py-2 bg-darker/50 border-b border-gray-700/50">
+                <div class="container mx-auto">
+                    <div class="text-sm text-gray-400" id="currentSection">
+                        🏠 홈 › 하나비와 함께하는 시네마틱 여정
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenuPanel"
+            class="fixed inset-0 bg-darker/95 backdrop-blur-md z-40 transform -translate-x-full transition-transform duration-300 md:hidden"
+            role="dialog" aria-label="모바일 네비게이션 메뉴" aria-hidden="true">
+            <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+                <a href="#story" class="hover:text-primary transition-colors mobile-menu-link"
+                    aria-label="스토리 섹션으로 이동">Story</a>
+                <a href="#music" class="hover:text-secondary transition-colors mobile-menu-link"
+                    aria-label="음악 섹션으로 이동">Music</a>
+                <a href="#fanzone" class="hover:text-primary transition-colors mobile-menu-link"
+                    aria-label="팬존 섹션으로 이동">Fan Zone</a>
+                <a href="#band" class="hover:text-primary transition-colors mobile-menu-link"
+                    aria-label="밴드 멤버 섹션으로 이동">Band</a>
+                <a href="#contact" class="hover:text-secondary transition-colors mobile-menu-link"
+                    aria-label="연락처 섹션으로 이동">Contact</a>
+                <div class="swipe-indicator">← 스와이프하여 닫기</div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <!-- 멀티레이어 애니메이션 배경 -->
+            <div class="hero-background">
+                <!-- 스타필드 배경 (맨 뒤) -->
+                <div class="starfield"></div>
+
+                <!-- 움직이는 그라디언트 배경 -->
+                <div class="animated-gradient"></div>
+
+                <!-- 오로라 효과 -->
+                <div class="aurora"></div>
+
+                <!-- 동적 빛줄기 -->
+                <div class="light-rays" id="lightRays"></div>
+
+                <!-- 모핑 지오메트릭 패턴 -->
+                <div class="geometric-overlay"></div>
+
+                <!-- 플로팅 도형들 -->
+                <div class="floating-shapes" id="floatingShapes"></div>
+
+                <!-- 웨이브 애니메이션 -->
+                <div class="wave-container">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+
+                <!-- 홀로그램 오버레이 -->
+                <div class="hologram-effect absolute inset-0"></div>
+
+                <!-- 다크 오버레이 -->
+                <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+
+            <!-- 강화된 파티클 캔버스 -->
+            <canvas id="particleCanvas" class="absolute inset-0 z-10"></canvas>
+
+            <!-- Live Stream Indicator -->
+            <div class="absolute top-4 right-4 z-30" id="liveIndicator" style="display: none;">
+                <div class="bg-red-600 text-white px-4 py-2 rounded-full flex items-center gap-2 animate-pulse">
+                    <div class="w-3 h-3 bg-white rounded-full animate-ping"></div>
+                    <span class="font-semibold">🔴 LIVE</span>
+                </div>
+            </div>
+
+            <div class="relative z-20 text-center px-6 transform-3d">
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 fade-in glitch-effect rgb-split"
+                    data-text="하나비">
+                    <span class="typewriter block">하나비</span>
+                </h1>
+                <p
+                    class="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto mb-8 fade-in hologram-effect p-4 rounded-lg">
+                    퇴근 후 합주가 제일 즐거운, 우리들의 소소한 록 밴드
+                </p>
+
+                <!-- Live Stream Notification -->
+                <div class="mb-6 fade-in" id="liveStreamNotification" style="display: none;">
+                    <div
+                        class="bg-red-600/90 backdrop-blur-sm text-white p-4 rounded-lg max-w-md mx-auto border border-red-500">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-4 h-4 bg-white rounded-full animate-pulse"></div>
+                            <span class="font-semibold">라이브 스트리밍 중!</span>
+                        </div>
+                        <p class="text-sm mb-3">지금 하나비의 라이브 연주를 실시간으로 시청하세요</p>
+                        <button
+                            class="w-full py-2 bg-white text-red-600 rounded font-semibold hover:bg-gray-100 transition-colors"
+                            id="joinLiveBtn">
+                            🎥 라이브 참여하기
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in">
+                    <a href="https://www.youtube.com/@oru-oru-ark/videos" target="_blank"
+                        class="px-8 py-4 bg-white text-darker hover:bg-gray-100 transition-all duration-300 rounded-full font-semibold transform hover:scale-105 hover:shadow-2xl inline-block">
+                        최신 음악 듣기
+                    </a>
+                    <button
+                        class="px-8 py-4 border-2 border-white hover:bg-white hover:text-darker transition-all duration-300 rounded-full transform hover:scale-105 hover:shadow-2xl">
+                        더 알아보기
+                    </button>
+                </div>
+            </div>
+
+            <!-- Floating Action Button -->
+            <div class="fab tooltip" data-tooltip="맨 위로 이동" id="scrollToTopFab" style="display: none;">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story" class="py-20 bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="font-display text-4xl md:text-6xl text-center mb-16 text-gradient fade-up-slow">
+                        OUR STORY
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                        <div class="fade-in">
+                            <div
+                                class="w-full h-80 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden relative shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                                <img src="images/cat-mascot.jpg" alt="하나비 마스코트 고양이"
+                                    class="member-image cover-style clickable-image">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <p class="font-display text-xl">Our Muse</p>
+                                    <p class="text-sm text-gray-300">스튜디오의 수호자, '루나'</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-6 fade-in" style="transition-delay: 0.2s">
+                            <h3 class="text-2xl font-semibold text-white">"우당탕탕 합주실, 그리고 우리들의 이야기"</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                <span class="text-primary font-semibold">하나비(Hanabi)</span>는 화려한 불꽃놀이처럼, 함께 모여 연주하는 이
+                                순간을 가장 뜨겁게 즐기는 친구들입니다.
+                            </p>
+                            <p class="text-gray-400 leading-relaxed">
+                                서울의 작은 지하 합주실에서 시작된 우리의 여정은, 서툰 연주라도 서로 눈을 맞추며 웃을 수 있는 <span
+                                    class="text-secondary">'우리만의 낭만'</span>을 연주하고 있습니다.
+                            </p>
+                            <p class="text-gray-400 leading-relaxed">
+                                우리의 즐거운 에너지가 당신의 지친 하루에도 작은 웃음이 되기를 바랍니다.
+                            </p>
+
+                            <div class="flex gap-4 pt-4">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-gradient">2021</div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider">Formed</div>
+                                </div>
+                                <div class="w-px bg-gray-700"></div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-gradient">12</div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider">Singles</div>
+                                </div>
+                                <div class="w-px bg-gray-700"></div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-gradient">50+</div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider">Live Shows</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Log Section -->
+        <section id="practice-log" class="py-20 bg-darker relative overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="font-display text-3xl md:text-5xl text-center mb-4 text-gradient fade-in">
+                    🔥 합주 스트릭 (Practice Streak)
+                </h2>
+                <p class="text-center text-gray-400 mb-12 fade-in">
+                    5월부터 매주 토요일, 단 한 번도 쉬지 않고 달려온 우리의 기록
+                </p>
+
+                <div
+                    class="max-w-5xl mx-auto bg-dark/50 backdrop-blur-sm rounded-xl p-8 border border-gray-800 shadow-2xl fade-in">
+                    <!-- Stats Header -->
+                    <div class="grid grid-cols-3 gap-4 mb-8 text-center">
+                        <div class="p-4 bg-darker rounded-lg border border-gray-700">
+                            <div class="text-3xl font-bold text-primary mb-1" id="totalPractices">0</div>
+                            <div class="text-xs text-gray-400">총 합주 횟수</div>
+                        </div>
+                        <div class="p-4 bg-darker rounded-lg border border-gray-700">
+                            <div class="text-3xl font-bold text-secondary mb-1" id="currentStreak">0</div>
+                            <div class="text-xs text-gray-400">현재 연속 주차</div>
+                        </div>
+                        <div class="p-4 bg-darker rounded-lg border border-gray-700">
+                            <div class="text-3xl font-bold text-pink-500 mb-1">98%</div>
+                            <div class="text-xs text-gray-400">출석률</div>
+                        </div>
+                    </div>
+
+                    <!-- Calendar Grid -->
+                    <div class="overflow-x-auto pb-4">
+                        <div class="flex gap-2 min-w-max" id="practiceGrid">
+                            <!-- Grid items will be injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="flex gap-6 justify-center mt-6 text-sm text-gray-400">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-sm bg-primary shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
+                            <span>합주 완료</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-sm bg-pink-500 shadow-[0_0_10px_rgba(236,72,153,0.5)]"></div>
+                            <span>특별 일정 (결혼식 등)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-sm bg-gray-800"></div>
+                            <span>예정</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background Elements -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
+            </div>
+        </section>
+
+        <!-- Music Section -->
+        <section id="music" class="py-20 bg-darker">
+            <div class="container mx-auto px-6">
+                <h2 class="font-display text-4xl md:text-6xl text-center mb-16 text-gradient section-title">
+                    DISCOGRAPHY
+                </h2>
+
+                <!-- Enhanced Music Player Section -->
+                <div class="max-w-4xl mx-auto mb-16 fade-in">
+                    <h3 class="font-display text-3xl md:text-4xl text-center mb-8 text-gradient">
+                        LATEST MUSIC VIDEO
+                    </h3>
+
+                    <!-- Custom Music Player -->
+                    <div class="bg-darker rounded-lg p-6 mb-8 shadow-2xl">
+                        <div class="flex items-center gap-4 mb-4">
+                            <button id="playPauseBtn"
+                                class="w-12 h-12 bg-primary hover:bg-secondary transition-colors rounded-full flex items-center justify-center"
+                                aria-label="재생/일시정지">
+                                <span id="playIcon">▶️</span>
+                            </button>
+                            <div class="flex-1">
+                                <h4 class="text-white font-semibold">별빛 속삭임 (Starlight Whispers)</h4>
+                                <p class="text-gray-400 text-sm">하나비 (Hanabi)</p>
+                            </div>
+                            <div class="text-gray-400 text-sm">
+                                <span id="currentTime">0:00</span> / <span id="totalTime">3:42</span>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="w-full bg-gray-700 rounded-full h-2 mb-4 cursor-pointer" id="progressBar">
+                            <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-300"
+                                id="progress" style="width: 0%"></div>
+                        </div>
+
+                        <!-- Volume Control -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-gray-400">🔊</span>
+                            <input type="range" class="flex-1 accent-primary" id="volumeSlider" min="0" max="100"
+                                value="70" aria-label="볼륨 조절">
+                            <button id="muteBtn" class="text-gray-400 hover:text-white transition-colors"
+                                aria-label="음소거 토글">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-darker rounded-lg overflow-hidden shadow-2xl video-wrapper">
+                        <div class="aspect-video">
+                            <iframe class="w-full h-full rounded-lg"
+                                src="https://www.youtube.com/embed/55Tez9WAsT8?si=EYmUQdtIxDzkEW0R"
+                                title="하나비 - Official Music Video" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-400 mt-4 font-display">
+                        하나비 - Official Music Video
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Album 1 -->
+                    <div class="card-hover bg-dark rounded-lg overflow-hidden album-card">
+                        <div class="h-64 bg-gradient-to-br from-primary to-darker flex items-center justify-center">
+                            <span class="text-white text-xl font-semibold">CINEMATIC DIVE</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-display text-2xl mb-2">CINEMATIC DIVE</h3>
+                            <p class="text-gray-400 mb-4">2023 • Full Album</p>
+                            <div class="flex gap-2">
+                                <button
+                                    class="px-4 py-2 bg-primary hover:bg-secondary transition-colors rounded text-sm">Spotify</button>
+                                <button
+                                    class="px-4 py-2 bg-gray-700 hover:bg-secondary transition-colors rounded text-sm">Apple
+                                    Music</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Album 2 -->
+                    <div class="card-hover bg-dark rounded-lg overflow-hidden album-card">
+                        <div class="h-64 bg-gradient-to-br from-secondary to-darker flex items-center justify-center">
+                            <span class="text-white text-xl font-semibold">NEON SHADOWS</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-display text-2xl mb-2">NEON SHADOWS</h3>
+                            <p class="text-gray-400 mb-4">2021 • EP</p>
+                            <div class="flex gap-2">
+                                <button
+                                    class="px-4 py-2 bg-secondary hover:bg-primary transition-colors rounded text-sm">Spotify</button>
+                                <button
+                                    class="px-4 py-2 bg-gray-700 hover:bg-primary transition-colors rounded text-sm">Apple
+                                    Music</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Album 3 -->
+                    <div class="card-hover bg-dark rounded-lg overflow-hidden album-card">
+                        <div class="h-64 bg-gradient-to-br from-gray-600 to-darker flex items-center justify-center">
+                            <span class="text-white text-4xl">?</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-display text-2xl mb-2">COMING SOON</h3>
+                            <p class="text-gray-400 mb-4">2025 • New Album</p>
+                            <button class="px-6 py-2 bg-primary hover:bg-secondary transition-colors rounded">알림
+                                받기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Band Section -->
+        <section id="band" class="py-20 bg-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="font-display text-4xl md:text-6xl text-center mb-16 text-gradient section-title">
+                    THE BAND
+                </h2>
+
+                <div class="max-w-6xl mx-auto">
+                    <div class="five-member-grid">
+                        <!-- 안윤태 -->
+                        <div class="member-card enhanced-card w-full max-w-sm bounce-in delay-100">
+                            <div class="member-inner relative h-96">
+                                <div class="member-front bg-darker rounded-lg overflow-hidden">
+                                    <div
+                                        class="h-80 relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 image-overlay">
+                                        <!-- Skeleton Loader -->
+                                        <div class="skeleton skeleton-image absolute inset-0" id="skeleton-yuntae">
+                                        </div>
+                                        <img data-src="images/member-yuntae.png" alt="안윤태 - 기타리스트"
+                                            class="member-image contain-style clickable-image lazy-image" loading="lazy"
+                                            aria-describedby="yuntae-description"
+                                            onload="document.getElementById('skeleton-yuntae').style.display='none'">
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                                        </div>
+
+                                        <!-- Status Indicator -->
+                                        <div class="absolute top-4 right-4 w-3 h-3 bg-green-500 rounded-full animate-pulse tooltip"
+                                            data-tooltip="온라인"></div>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="font-display text-2xl text-primary mb-2">윤태</h3>
+                                        <p class="text-gray-400 mb-2">기타</p>
+                                        <div class="flex items-center gap-2 mb-3">
+                                            <span
+                                                class="px-3 py-1 bg-primary text-white text-sm rounded-full">Guitar</span>
+                                            <div class="flex items-center text-yellow-500 text-sm">
+                                                <span>★</span>
+                                                <span class="ml-1">4.9</span>
+                                            </div>
+                                        </div>
+                                        <!-- Progress Bar -->
+                                        <div class="w-full bg-gray-700 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full transition-all duration-1000"
+                                                style="width: 85%"></div>
+                                        </div>
+                                        <p class="text-xs text-gray-500 mt-1">연주 숙련도</p>
+                                    </div>
+                                </div>
+                                <div class="member-back bg-darker p-6 rounded-lg flex flex-col justify-center">
+                                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                        "기타 칠 때 표정만큼은 월드클래스."<br>
+                                        합주 끝나고 회식 메뉴 정하는 담당이자, 실력은... (비밀)
+                                    </p>
+                                    <div class="flex gap-2 justify-center mb-3">
+                                        <a href="https://www.instagram.com/anyuntae88" target="_blank"
+                                            class="w-8 h-8 bg-gray-700 hover:bg-primary transition-colors rounded flex items-center justify-center instagram-btn">📷</a>
+                                        <button
+                                            class="w-8 h-8 bg-gray-700 hover:bg-secondary transition-colors rounded">🐦</button>
+                                    </div>
+                                    <button id="yuntaeVideoBtn"
+                                        class="w-full px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 hover:from-blue-500 hover:to-green-500 transition-all duration-300 rounded-full text-white font-semibold">
+                                        📹 영상 보기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 김진호 -->
+                        <div class="member-card w-full max-w-sm fade-in">
+                            <div class="member-inner relative h-96">
+                                <div class="member-front bg-darker rounded-lg overflow-hidden">
+                                    <div
+                                        class="h-80 relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                                        <img data-src="images/member-jinho.png" alt="김진호 - 기타리스트"
+                                            class="member-image contain-style clickable-image lazy-image" loading="lazy"
+                                            aria-describedby="jinho-description">
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                                        </div>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="font-display text-2xl text-secondary mb-2">김진호</h3>
+                                        <p class="text-gray-400 mb-2">기타</p>
+                                        <span
+                                            class="px-3 py-1 bg-secondary text-white text-sm rounded-full">Guitar</span>
+                                    </div>
+                                </div>
+                                <div class="member-back bg-darker p-6 rounded-lg flex flex-col justify-center">
+                                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                        "이펙터만 20개, 정작 쓰는 건 2개."<br>
+                                        장비병 환자이자 합주 지각비 1등 공신. (그래도 연주는 잘함)
+                                    </p>
+                                    <div class="flex gap-2 justify-center mb-3">
+                                        <a href="https://www.instagram.com/_zin_ho" target="_blank"
+                                            class="w-8 h-8 bg-gray-700 hover:bg-secondary transition-colors rounded flex items-center justify-center instagram-btn">📷</a>
+                                        <button
+                                            class="w-8 h-8 bg-gray-700 hover:bg-secondary transition-colors rounded">🐦</button>
+                                    </div>
+                                    <button id="videoBtn"
+                                        class="w-full px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 rounded-full text-white font-semibold">
+                                        📹 영상 보기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 황찬희 -->
+                        <div class="member-card w-full max-w-sm fade-in">
+                            <div class="member-inner relative h-96">
+                                <div class="member-front bg-darker rounded-lg overflow-hidden">
+                                    <div
+                                        class="h-80 relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                                        <img data-src="images/member-chanhee.png" alt="이찬희 - 베이시스트"
+                                            class="member-image contain-style clickable-image lazy-image" loading="lazy"
+                                            aria-describedby="chanhee-description">
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                                        </div>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="font-display text-2xl text-primary mb-2">황찬희</h3>
+                                        <p class="text-gray-400 mb-2">베이스</p>
+                                        <span class="px-3 py-1 bg-primary text-white text-sm rounded-full">Bass</span>
+                                    </div>
+                                </div>
+                                <div class="member-back bg-darker p-6 rounded-lg flex flex-col justify-center">
+                                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                        "베이스 소리 안 들린다고 하면 삐짐."<br>
+                                        묵묵히 연주하다가 가끔 터지는 개그 욕심이 매력 포인트.
+                                    </p>
+                                    <div class="flex gap-2 justify-center">
+                                        <a href="https://www.instagram.com/ilwuvp_611oelqnop" target="_blank"
+                                            class="w-8 h-8 bg-gray-700 hover:bg-primary transition-colors rounded flex items-center justify-center instagram-btn">📷</a>
+                                        <button
+                                            class="w-8 h-8 bg-gray-700 hover:bg-primary transition-colors rounded">🐦</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 노건희 -->
+                        <div class="member-card w-full max-w-sm fade-in">
+                            <div class="member-inner relative h-96">
+                                <div class="member-front bg-darker rounded-lg overflow-hidden">
+                                    <div
+                                        class="h-80 relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                                        <img data-src="images/member-geonhee.png" alt="노건희 - 드래머"
+                                            class="member-image contain-style clickable-image lazy-image" loading="lazy"
+                                            aria-describedby="geonhee-description">
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                                        </div>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="font-display text-2xl text-secondary mb-2">노건희</h3>
+                                        <p class="text-gray-400 mb-2">드럼</p>
+                                        <span
+                                            class="px-3 py-1 bg-secondary text-white text-sm rounded-full">Drums</span>
+                                    </div>
+                                </div>
+                                <div class="member-back bg-darker p-6 rounded-lg flex flex-col justify-center">
+                                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                        "박자 틀리면 남 탓 시전하는 파워 드러머."<br>
+                                        스틱 부러뜨리기 장인. (물론 본인 돈으로 삼)
+                                    </p>
+                                    <div class="flex gap-2 justify-center">
+                                        <a href="https://www.instagram.com/no.g.hee" target="_blank"
+                                            class="w-8 h-8 bg-gray-700 hover:bg-secondary transition-colors rounded flex items-center justify-center instagram-btn">📷</a>
+                                        <button
+                                            class="w-8 h-8 bg-gray-700 hover:bg-secondary transition-colors rounded">🐦</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 이경준 -->
+                        <div class="member-card w-full max-w-sm fade-in">
+                            <div class="member-inner relative h-96">
+                                <div class="member-front bg-darker rounded-lg overflow-hidden">
+                                    <div
+                                        class="h-80 relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                                        <img data-src="images/member-kyungjun.jpeg" alt="이경준 - 피아니스트"
+                                            class="member-image contain-style clickable-image lazy-image" loading="lazy"
+                                            aria-describedby="kyungjun-description">
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                                        </div>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="font-display text-2xl text-primary mb-2">이경준</h3>
+                                        <p class="text-gray-400 mb-2">피아노</p>
+                                        <span class="px-3 py-1 bg-primary text-white text-sm rounded-full">Piano</span>
+                                    </div>
+                                </div>
+                                <div class="member-back bg-darker p-6 rounded-lg flex flex-col justify-center">
+                                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                        "피아노 칠 때 손가락보다 머리카락이 더 많이 움직임."<br>
+                                        감성 충만해서 가끔 합주하다 혼자 울컥하는 감성파.
+                                    </p>
+                                    <div class="flex gap-2 justify-center">
+                                        <button
+                                            class="w-8 h-8 bg-gray-700 hover:bg-primary transition-colors rounded">📷</button>
+                                        <button
+                                            class="w-8 h-8 bg-gray-700 hover:bg-primary transition-colors rounded">🐦</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Performance Video Section -->
+                    <div class="mt-20 fade-in">
+                        <h3 class="font-display text-3xl md:text-4xl text-center mb-8 text-gradient">
+                            LIVE PERFORMANCE
+                        </h3>
+                        <div class="max-w-4xl mx-auto bg-darker rounded-lg overflow-hidden shadow-2xl">
+                            <video class="w-full h-auto" controls preload="metadata">
+                                <source src="videos/band-performance.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="text-center text-gray-400 mt-4 font-display">
+                            하나비 - Live in Studio
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discography Section -->
+        <section id="discography" class="py-20 bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="font-display text-4xl md:text-6xl text-center mb-16 text-gradient fade-in">
+                        DISCOGRAPHY
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                        <div class="fade-in">
+                            <div class="bg-darker rounded-lg overflow-hidden shadow-2xl video-wrapper">
+                                <div class="aspect-video">
+                                    <iframe class="w-full h-full rounded-lg"
+                                        src="https://www.youtube.com/embed/55Tez9WAsT8" title="하나비 - Latest Music Video"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in">
+                            <h3 class="font-display text-3xl text-primary mb-4">
+                                LATEST MUSIC VIDEO
+                            </h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                하나비의 최신 음악 비디오를 만나보세요. 우리의 시네마틱한 사운드와
+                                독특한 비주얼이 어우러진 감각적인 경험을 선사합니다.
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in">
+                                <a href="https://www.youtube.com/@oru-oru-ark/videos" target="_blank"
+                                    class="px-8 py-4 bg-white text-darker hover:bg-gray-100 transition-all duration-300 rounded-full font-semibold transform hover:scale-105 hover:shadow-2xl inline-block">
+                                    최신 음악 듣기
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Album Gallery -->
+                    <div class="mt-16 fade-in">
+                        <h3 class="font-display text-3xl text-center mb-8 text-gradient">
+                            ALBUM GALLERY
+                        </h3>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="album-item fade-in">
+                                <div
+                                    class="bg-darker rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                                    <div class="p-3">
+                                        <img src="images/album-cover-1.png" alt="하나비 앨범 표지"
+                                            class="w-full h-auto rounded clickable-image">
+                                    </div>
+                                    <div class="px-4 pb-4">
+                                        <p class="text-gray-400 text-sm">하나비의 정규 앨범 아트워크</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="album-item fade-in">
+                                <div
+                                    class="bg-darker rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                                    <div class="p-3">
+                                        <img src="images/앨범 소개 2.png" alt="하나비 앨범 소개"
+                                            class="w-full h-auto rounded clickable-image">
+                                    </div>
+                                    <div class="px-4 pb-4">
+                                        <p class="text-gray-400 text-sm">하나비의 음악 세계관과 컨셉</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="album-item fade-in">
+                                <div
+                                    class="bg-darker rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                                    <div class="p-3">
+                                        <img src="images/album-intro-3.png" alt="하나비 앨범 아트"
+                                            class="w-full h-auto rounded clickable-image">
+                                    </div>
+                                    <div class="px-4 pb-4">
+                                        <p class="text-gray-400 text-sm">시네마틱 사운드의 비주얼 표현</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fan Engagement Section -->
+        <section id="fanzone" class="py-20 bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="font-display text-4xl md:text-6xl mb-12 text-gradient text-center fade-in">
+                        팬존 (Fan Zone)
+                    </h2>
+
+                    <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                        <!-- Real-time Fan Messages -->
+                        <div class="bg-darker rounded-xl p-8 shadow-2xl">
+                            <h3 class="font-display text-2xl text-primary mb-6 flex items-center gap-3">
+                                <span>💌</span> 실시간 팬 메시지
+                            </h3>
+
+                            <div id="fanMessages" class="space-y-4 mb-6 max-h-80 overflow-y-auto">
+                                <!-- Messages will be populated by JavaScript -->
+                            </div>
+
+                            <form id="fanMessageForm" class="space-y-4">
+                                <div class="flex gap-3">
+                                    <input type="text" id="fanName" placeholder="닉네임"
+                                        class="flex-1 px-4 py-3 bg-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none"
+                                        maxlength="20" required>
+                                    <select id="fanMood"
+                                        class="px-4 py-3 bg-dark border border-gray-600 rounded-lg text-white focus:border-primary focus:outline-none">
+                                        <option value="🎸">🎸 록</option>
+                                        <option value="💖">💖 사랑</option>
+                                        <option value="🔥">🔥 열정</option>
+                                        <option value="✨">✨ 몽환</option>
+                                        <option value="🌙">🌙 감성</option>
+                                    </select>
+                                </div>
+                                <textarea id="fanMessage" placeholder="하나비에게 전하고 싶은 메시지를 남겨주세요..."
+                                    class="w-full px-4 py-3 bg-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none resize-none"
+                                    rows="3" maxlength="200" required></textarea>
+                                <button type="submit"
+                                    class="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all duration-300 rounded-lg text-white font-semibold">
+                                    메시지 보내기 ✨
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Fan Statistics & Voting -->
+                        <div class="space-y-8">
+                            <!-- Live Stats -->
+                            <div class="bg-darker rounded-xl p-8 shadow-2xl">
+                                <h3 class="font-display text-2xl text-primary mb-6 flex items-center gap-3">
+                                    <span>📊</span> 실시간 통계
+                                </h3>
+
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-gradient" id="onlineVisitors">247</div>
+                                        <div class="text-gray-400 text-sm">현재 접속자</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-gradient" id="totalMessages">1,523</div>
+                                        <div class="text-gray-400 text-sm">총 메시지</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-gradient" id="todayViews">892</div>
+                                        <div class="text-gray-400 text-sm">오늘 방문</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-gradient" id="fanRating">4.9</div>
+                                        <div class="text-gray-400 text-sm">팬 평점</div>
+                                    </div>
+                                </div>
+
+                                <!-- Mood Meter -->
+                                <div class="mt-8">
+                                    <h4 class="text-lg text-white mb-4">팬들의 현재 기분</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center gap-3">
+                                            <span>🎸</span>
+                                            <div class="flex-1 bg-gray-700 rounded-full h-3">
+                                                <div class="h-3 bg-gradient-to-r from-red-500 to-orange-500 rounded-full"
+                                                    style="width: 45%"></div>
+                                            </div>
+                                            <span class="text-sm text-gray-400">45%</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>💖</span>
+                                            <div class="flex-1 bg-gray-700 rounded-full h-3">
+                                                <div class="h-3 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full"
+                                                    style="width: 32%"></div>
+                                            </div>
+                                            <span class="text-sm text-gray-400">32%</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>🔥</span>
+                                            <div class="flex-1 bg-gray-700 rounded-full h-3">
+                                                <div class="h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full"
+                                                    style="width: 15%"></div>
+                                            </div>
+                                            <span class="text-sm text-gray-400">15%</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>✨</span>
+                                            <div class="flex-1 bg-gray-700 rounded-full h-3">
+                                                <div class="h-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+                                                    style="width: 8%"></div>
+                                            </div>
+                                            <span class="text-sm text-gray-400">8%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Song Voting -->
+                            <div class="bg-darker rounded-xl p-8 shadow-2xl">
+                                <h3 class="font-display text-2xl text-primary mb-6 flex items-center gap-3">
+                                    <span>🗳️</span> 다음 곡 투표
+                                </h3>
+
+                                <div class="space-y-4" id="songVoting">
+                                    <div class="voting-option border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors"
+                                        data-song="starlight">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-white font-semibold">별빛 속삭임 (Acoustic Ver.)</span>
+                                            <span class="text-primary font-bold" id="votes-starlight">156표</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2">
+                                            <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-500"
+                                                style="width: 43%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="voting-option border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors"
+                                        data-song="dreams">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-white font-semibold">꿈의 메아리</span>
+                                            <span class="text-primary font-bold" id="votes-dreams">134표</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2">
+                                            <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-500"
+                                                style="width: 37%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="voting-option border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors"
+                                        data-song="fireworks">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-white font-semibold">불꽃놀이 (Hanabi)</span>
+                                            <span class="text-primary font-bold" id="votes-fireworks">72표</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2">
+                                            <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-500"
+                                                style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="text-gray-400 text-sm mt-4 text-center">
+                                    투표 결과는 다음 공연 세트리스트에 반영됩니다
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Integration -->
+                    <div class="bg-darker rounded-xl p-8 shadow-2xl mb-12">
+                        <h3
+                            class="font-display text-2xl text-primary mb-8 text-center flex items-center justify-center gap-3">
+                            <span>🌐</span> 소셜 미디어 & 공유
+                        </h3>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <!-- Instagram Feed -->
+                            <div
+                                class="social-card bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg p-6 text-white cursor-pointer hover:scale-105 transition-transform">
+                                <div class="text-center">
+                                    <div class="text-3xl mb-3">📸</div>
+                                    <h4 class="font-semibold mb-2">Instagram</h4>
+                                    <p class="text-sm opacity-90">최신 사진 & 비하인드</p>
+                                    <div class="mt-4 text-2xl font-bold">2.3K</div>
+                                    <div class="text-xs opacity-75">팔로워</div>
+                                </div>
+                            </div>
+
+                            <!-- YouTube -->
+                            <div
+                                class="social-card bg-gradient-to-br from-red-600 to-red-700 rounded-lg p-6 text-white cursor-pointer hover:scale-105 transition-transform">
+                                <div class="text-center">
+                                    <div class="text-3xl mb-3">🎥</div>
+                                    <h4 class="font-semibold mb-2">YouTube</h4>
+                                    <p class="text-sm opacity-90">뮤직비디오 & 라이브</p>
+                                    <div class="mt-4 text-2xl font-bold">8.7K</div>
+                                    <div class="text-xs opacity-75">구독자</div>
+                                </div>
+                            </div>
+
+                            <!-- Spotify -->
+                            <div
+                                class="social-card bg-gradient-to-br from-green-600 to-green-700 rounded-lg p-6 text-white cursor-pointer hover:scale-105 transition-transform">
+                                <div class="text-center">
+                                    <div class="text-3xl mb-3">🎵</div>
+                                    <h4 class="font-semibold mb-2">Spotify</h4>
+                                    <p class="text-sm opacity-90">음원 스트리밍</p>
+                                    <div class="mt-4 text-2xl font-bold">12.1K</div>
+                                    <div class="text-xs opacity-75">월간 청취자</div>
+                                </div>
+                            </div>
+
+                            <!-- TikTok -->
+                            <div
+                                class="social-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-6 text-white cursor-pointer hover:scale-105 transition-transform">
+                                <div class="text-center">
+                                    <div class="text-3xl mb-3">🎬</div>
+                                    <h4 class="font-semibold mb-2">TikTok</h4>
+                                    <p class="text-sm opacity-90">숏폼 콘텐츠</p>
+                                    <div class="mt-4 text-2xl font-bold">15.6K</div>
+                                    <div class="text-xs opacity-75">팔로워</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Share Buttons -->
+                        <div class="text-center">
+                            <h4 class="text-white font-semibold mb-4">하나비를 친구들에게 공유해주세요!</h4>
+                            <div class="flex justify-center gap-4 flex-wrap">
+                                <button
+                                    class="share-btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+                                    data-platform="facebook">
+                                    <span>📘</span> Facebook
+                                </button>
+                                <button
+                                    class="share-btn bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+                                    data-platform="twitter">
+                                    <span>🐦</span> Twitter
+                                </button>
+                                <button
+                                    class="share-btn bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+                                    data-platform="whatsapp">
+                                    <span>💬</span> WhatsApp
+                                </button>
+                                <button
+                                    class="share-btn bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+                                    data-platform="copy">
+                                    <span>🔗</span> 링크 복사
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Journey Optimization -->
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Quick Actions -->
+                        <div class="bg-darker rounded-xl p-6 shadow-2xl">
+                            <h3 class="font-display text-xl text-primary mb-4 flex items-center gap-2">
+                                <span>⚡</span> 빠른 액션
+                            </h3>
+                            <div class="space-y-3">
+                                <button
+                                    class="quick-action w-full text-left p-3 bg-dark hover:bg-gray-700 rounded-lg transition-colors"
+                                    data-action="newsletter">
+                                    <div class="flex items-center gap-3">
+                                        <span>📧</span>
+                                        <span>뉴스레터 구독</span>
+                                    </div>
+                                </button>
+                                <button
+                                    class="quick-action w-full text-left p-3 bg-dark hover:bg-gray-700 rounded-lg transition-colors"
+                                    data-action="tour">
+                                    <div class="flex items-center gap-3">
+                                        <span>🎤</span>
+                                        <span>투어 일정 알림</span>
+                                    </div>
+                                </button>
+                                <button
+                                    class="quick-action w-full text-left p-3 bg-dark hover:bg-gray-700 rounded-lg transition-colors"
+                                    data-action="merchandise">
+                                    <div class="flex items-center gap-3">
+                                        <span>👕</span>
+                                        <span>굿즈 둘러보기</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="bg-darker rounded-xl p-6 shadow-2xl">
+                            <h3 class="font-display text-xl text-primary mb-4 flex items-center gap-2">
+                                <span>🔥</span> 최근 활동
+                            </h3>
+                            <div class="space-y-4" id="recentActivity">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Recommendations -->
+                        <div class="bg-darker rounded-xl p-6 shadow-2xl">
+                            <h3 class="font-display text-xl text-primary mb-4 flex items-center gap-2">
+                                <span>💡</span> 추천
+                            </h3>
+                            <div class="space-y-4" id="recommendations">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-darker">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="font-display text-4xl md:text-6xl mb-8 text-gradient fade-in">
+                        GET IN TOUCH
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-12 fade-in">
+                        시네마틱 경험에 뛰어들 준비가 되셨나요? 연결해보세요.
+                    </p>
+
+                    <!-- Newsletter Signup -->
+                    <div
+                        class="max-w-2xl mx-auto mb-16 bg-gradient-to-r from-primary/20 to-secondary/20 p-8 rounded-2xl backdrop-blur-sm border border-gray-700 fade-in">
+                        <h3 class="font-display text-3xl text-center text-gradient mb-4">🔔 팬클럽 뉴스레터</h3>
+                        <p class="text-gray-300 text-center mb-6">새로운 곡, 공연 일정, 독점 콘텐츠를 가장 먼저 받아보세요!</p>
+                        <form class="flex flex-col md:flex-row gap-4" id="newsletterForm">
+                            <div class="flex-1 relative">
+                                <input type="email" placeholder="이메일 주소를 입력하세요"
+                                    class="w-full px-6 py-3 bg-dark border border-gray-600 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-all duration-300 focus-visible"
+                                    id="emailInput" required>
+                                <!-- Email Validation Icon -->
+                                <div class="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 transition-opacity duration-300"
+                                    id="emailValidIcon">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="px-8 py-3 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all duration-300 rounded-full text-white font-semibold whitespace-nowrap ripple focus-visible relative overflow-hidden"
+                                id="newsletterSubmitBtn">
+                                <span class="relative z-10">✨ 구독하기</span>
+                            </button>
+                        </form>
+                        <p class="text-xs text-gray-500 text-center mt-4">언제든지 구독을 취소할 수 있습니다. 개인정보는 안전하게 보호됩니다.</p>
+                    </div>
+
+                    <!-- Live Events & Ticket Booking -->
+                    <div class="mb-16 fade-in">
+                        <h3 class="font-display text-3xl text-center text-gradient mb-8">🎫 다가오는 공연</h3>
+                        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                            <div
+                                class="bg-dark p-6 rounded-lg border border-gray-700 hover:border-primary transition-colors">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h4 class="font-semibold text-white text-lg">하나비 단독 콘서트</h4>
+                                        <p class="text-gray-400">홍대 라이브클럽</p>
+                                    </div>
+                                    <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">SOLD OUT</span>
+                                </div>
+                                <p class="text-gray-300 mb-4">2025년 2월 14일 (금) 오후 8시</p>
+                                <button
+                                    class="w-full py-2 bg-gray-600 text-gray-400 rounded cursor-not-allowed">매진</button>
+                            </div>
+
+                            <div
+                                class="bg-dark p-6 rounded-lg border border-gray-700 hover:border-secondary transition-colors">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h4 class="font-semibold text-white text-lg">봄꽃 페스티벌</h4>
+                                        <p class="text-gray-400">올림픽공원 잔디광장</p>
+                                    </div>
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">예매중</span>
+                                </div>
+                                <p class="text-gray-300 mb-4">2025년 4월 12일 (토) 오후 6시</p>
+                                <button
+                                    class="w-full py-2 bg-gradient-to-r from-secondary to-primary hover:from-primary hover:to-secondary transition-all duration-300 text-white rounded font-semibold">🎫
+                                    예매하기</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fan Art Gallery -->
+                    <div class="mb-16 fade-in">
+                        <h3 class="font-display text-3xl text-center text-gradient mb-8">🎨 팬아트 갤러리</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                            <div
+                                class="aspect-square bg-gradient-to-br from-primary/30 to-secondary/30 rounded-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                                <span class="text-4xl">🎸</span>
+                            </div>
+                            <div
+                                class="aspect-square bg-gradient-to-br from-secondary/30 to-primary/30 rounded-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                                <span class="text-4xl">🎵</span>
+                            </div>
+                            <div
+                                class="aspect-square bg-gradient-to-br from-primary/30 to-secondary/30 rounded-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                                <span class="text-4xl">🌟</span>
+                            </div>
+                            <div
+                                class="aspect-square bg-gradient-to-br from-secondary/30 to-primary/30 rounded-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform border-2 border-dashed border-gray-600 hover:border-primary">
+                                <div class="text-center">
+                                    <span class="block text-2xl mb-1">📤</span>
+                                    <span class="text-xs text-gray-400">업로드</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-6">
+                            <button
+                                class="px-6 py-2 border border-gray-600 text-gray-300 hover:border-primary hover:text-primary transition-colors rounded-full">
+                                더 많은 팬아트 보기 →
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8 mb-16">
+                        <div class="card-hover bg-dark p-8 rounded-lg fade-in">
+                            <h3 class="font-display text-2xl text-primary mb-4">BOOKING</h3>
+                            <p class="text-gray-400">booking@하나비.com</p>
+                        </div>
+                        <div class="card-hover bg-dark p-8 rounded-lg fade-in">
+                            <h3 class="font-display text-2xl text-secondary mb-4">PRESS</h3>
+                            <p class="text-gray-400">press@하나비.com</p>
+                        </div>
+                        <div class="card-hover bg-dark p-8 rounded-lg fade-in">
+                            <h3 class="font-display text-2xl text-primary mb-4">GENERAL</h3>
+                            <p class="text-gray-400">hello@하나비.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center gap-6 fade-in">
+                        <button
+                            class="w-12 h-12 bg-gray-700 hover:bg-primary transition-colors rounded-full">📷</button>
+                        <button
+                            class="w-12 h-12 bg-gray-700 hover:bg-primary transition-colors rounded-full">🐦</button>
+                        <button
+                            class="w-12 h-12 bg-gray-700 hover:bg-primary transition-colors rounded-full">📘</button>
+                        <button
+                            class="w-12 h-12 bg-gray-700 hover:bg-primary transition-colors rounded-full">🎵</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Footer -->
+        <footer class="py-12 bg-darker border-t border-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="font-display text-2xl text-gradient mb-4 md:mb-0">
+                        하나비
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button id="adminDashboardBtn"
+                            class="text-xs text-gray-500 hover:text-gray-300 transition-colors">
+                            관리자
+                        </button>
+                        <div class="text-gray-400 text-sm">
+                            © 2025 하나비. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Admin Dashboard Modal -->
+        <div id="adminDashboard" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 hidden">
+            <div class="min-h-screen p-4">
+                <div class="max-w-6xl mx-auto bg-darker border border-gray-700 rounded-lg">
+                    <!-- Dashboard Header -->
+                    <div class="flex justify-between items-center p-6 border-b border-gray-700">
+                        <h2 class="text-2xl font-semibold text-gradient">📊 하나비 관리자 대시보드</h2>
+                        <button id="closeAdminDashboard"
+                            class="text-gray-400 hover:text-white text-2xl">&times;</button>
+                    </div>
+
+                    <!-- Dashboard Content -->
+                    <div class="p-6">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                            <!-- Analytics Overview -->
+                            <div class="bg-dark p-6 rounded-lg border border-gray-700">
+                                <h3 class="text-lg font-semibold text-primary mb-4">📈 웹사이트 분석</h3>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">오늘 방문자</span>
+                                        <span class="text-white font-semibold" id="todayVisitors">1,234</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">총 페이지뷰</span>
+                                        <span class="text-white font-semibold" id="totalPageViews">45,678</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">뉴스레터 구독자</span>
+                                        <span class="text-secondary font-semibold" id="subscriberCount">0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Stream Control -->
+                            <div class="bg-dark p-6 rounded-lg border border-gray-700">
+                                <h3 class="text-lg font-semibold text-primary mb-4">🔴 라이브 스트림</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-2">
+                                        <div id="liveStatusIndicator" class="w-3 h-3 bg-gray-500 rounded-full"></div>
+                                        <span id="liveStatusText" class="text-gray-400">오프라인</span>
+                                    </div>
+                                    <button id="toggleLiveStream"
+                                        class="w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded transition-colors">
+                                        라이브 시작
+                                    </button>
+                                    <div class="text-sm text-gray-500">
+                                        <span>시청자: </span>
+                                        <span id="viewerCount">0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Event Management -->
+                            <div class="bg-dark p-6 rounded-lg border border-gray-700">
+                                <h3 class="text-lg font-semibold text-primary mb-4">🎫 공연 관리</h3>
+                                <button
+                                    class="w-full py-2 mb-3 bg-secondary hover:bg-primary text-white rounded transition-colors">
+                                    새 공연 추가
+                                </button>
+                                <div class="text-sm text-gray-400">
+                                    다음 공연: 봄꽃 페스티벌<br>
+                                    <span class="text-green-500">예매 진행 중</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="bg-dark p-6 rounded-lg border border-gray-700 mb-6">
+                            <h3 class="text-lg font-semibold text-primary mb-4">📋 최근 활동</h3>
+                            <div class="space-y-3" id="recentActivity">
+                                <div class="flex justify-between items-center py-2 border-b border-gray-700">
+                                    <span class="text-gray-300">새로운 뉴스레터 구독</span>
+                                    <span class="text-gray-500 text-sm">2분 전</span>
+                                </div>
+                                <div class="flex justify-between items-center py-2 border-b border-gray-700">
+                                    <span class="text-gray-300">유튜브 영상 재생</span>
+                                    <span class="text-gray-500 text-sm">5분 전</span>
+                                </div>
+                                <div class="flex justify-between items-center py-2">
+                                    <span class="text-gray-300">멤버 카드 클릭 (윤태)</span>
+                                    <span class="text-gray-500 text-sm">7분 전</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Analytics Events -->
+                        <div class="bg-dark p-6 rounded-lg border border-gray-700">
+                            <h3 class="text-lg font-semibold text-primary mb-4">📊 실시간 이벤트</h3>
+                            <div class="h-64 overflow-y-auto">
+                                <div id="analyticsEvents" class="space-y-2">
+                                    <!-- 이벤트가 여기에 실시간으로 추가됩니다 -->
+                                </div>
+                            </div>
+                            <button id="clearAnalytics"
+                                class="mt-4 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded transition-colors">
+                                이벤트 로그 지우기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="video-modal">
+            <div class="video-modal-content">
+                <button class="video-close" id="videoClose">&times;</button>
+                <div class="video-container">
+                    <video id="modalVideo" controls>
+                        <source src="videos/진호_guitar_performance.mp4" type="video/mp4">
+                        브라우저에서 비디오를 지원하지 않습니다.
+                    </video>
+                </div>
+                <h3 class="video-title">김진호 - 기타 연주 영상</h3>
+            </div>
+        </div>
+
+        <!-- Image Modal -->
+        <div id="imageModal" class="image-modal">
+            <div class="image-modal-content">
+                <button class="image-close" id="imageClose">&times;</button>
+                <img id="modalImage" class="modal-image" src="" alt="">
+                <div class="image-info">
+                    <h3 id="modalName" class="image-title"></h3>
+                    <p id="modalRole" class="image-role"></p>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+    </div> <!-- main-content 닫기 -->
+</body>
+
+</html>
