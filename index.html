@@ -465,119 +465,7 @@
             </div>
         </section>
 
-        <!-- Music Section -->
-        <section id="music" class="py-20 bg-darker">
-            <div class="container mx-auto px-6">
-                <h2 class="font-display text-4xl md:text-6xl text-center mb-16 text-gradient section-title">
-                    DISCOGRAPHY
-                </h2>
 
-                <!-- Enhanced Music Player Section -->
-                <div class="max-w-4xl mx-auto mb-16 fade-in">
-                    <h3 class="font-display text-3xl md:text-4xl text-center mb-8 text-gradient">
-                        LATEST MUSIC VIDEO
-                    </h3>
-
-                    <!-- Custom Music Player -->
-                    <div class="bg-darker rounded-lg p-6 mb-8 shadow-2xl">
-                        <div class="flex items-center gap-4 mb-4">
-                            <button id="playPauseBtn"
-                                class="w-12 h-12 bg-primary hover:bg-secondary transition-colors rounded-full flex items-center justify-center"
-                                aria-label="재생/일시정지">
-                                <span id="playIcon">▶️</span>
-                            </button>
-                            <div class="flex-1">
-                                <h4 class="text-white font-semibold">별빛 속삭임 (Starlight Whispers)</h4>
-                                <p class="text-gray-400 text-sm">두둥실 (Doodoongshil)</p>
-                            </div>
-                            <div class="text-gray-400 text-sm">
-                                <span id="currentTime">0:00</span> / <span id="totalTime">3:42</span>
-                            </div>
-                        </div>
-
-                        <!-- Progress Bar -->
-                        <div class="w-full bg-gray-700 rounded-full h-2 mb-4 cursor-pointer" id="progressBar">
-                            <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-300"
-                                id="progress" style="width: 0%"></div>
-                        </div>
-
-                        <!-- Volume Control -->
-                        <div class="flex items-center gap-4">
-                            <span class="text-gray-400">🔊</span>
-                            <input type="range" class="flex-1 accent-primary" id="volumeSlider" min="0" max="100"
-                                value="70" aria-label="볼륨 조절">
-                            <button id="muteBtn" class="text-gray-400 hover:text-white transition-colors"
-                                aria-label="음소거 토글">🔊</button>
-                        </div>
-                    </div>
-
-                    <div class="bg-darker rounded-lg overflow-hidden shadow-2xl video-wrapper">
-                        <div class="aspect-video">
-                            <iframe class="w-full h-full rounded-lg"
-                                src="https://www.youtube.com/embed/55Tez9WAsT8?si=EYmUQdtIxDzkEW0R"
-                                title="두둥실 - Official Music Video" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen loading="lazy">
-                            </iframe>
-                        </div>
-                    </div>
-                    <p class="text-center text-gray-400 mt-4 font-display">
-                        두둥실 - Official Music Video
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Album 1 -->
-                    <div class="card-hover bg-dark rounded-lg overflow-hidden album-card">
-                        <div class="h-64 bg-gradient-to-br from-primary to-darker flex items-center justify-center">
-                            <span class="text-white text-xl font-semibold">CINEMATIC DIVE</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-display text-2xl mb-2">CINEMATIC DIVE</h3>
-                            <p class="text-gray-400 mb-4">2023 • Full Album</p>
-                            <div class="flex gap-2">
-                                <button
-                                    class="px-4 py-2 bg-primary hover:bg-secondary transition-colors rounded text-sm">Spotify</button>
-                                <button
-                                    class="px-4 py-2 bg-gray-700 hover:bg-secondary transition-colors rounded text-sm">Apple
-                                    Music</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Album 2 -->
-                    <div class="card-hover bg-dark rounded-lg overflow-hidden album-card">
-                        <div class="h-64 bg-gradient-to-br from-secondary to-darker flex items-center justify-center">
-                            <span class="text-white text-xl font-semibold">NEON SHADOWS</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-display text-2xl mb-2">NEON SHADOWS</h3>
-                            <p class="text-gray-400 mb-4">2021 • EP</p>
-                            <div class="flex gap-2">
-                                <button
-                                    class="px-4 py-2 bg-secondary hover:bg-primary transition-colors rounded text-sm">Spotify</button>
-                                <button
-                                    class="px-4 py-2 bg-gray-700 hover:bg-primary transition-colors rounded text-sm">Apple
-                                    Music</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Album 3 -->
-                    <div class="card-hover bg-dark rounded-lg overflow-hidden album-card">
-                        <div class="h-64 bg-gradient-to-br from-gray-600 to-darker flex items-center justify-center">
-                            <span class="text-white text-4xl">?</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-display text-2xl mb-2">COMING SOON</h3>
-                            <p class="text-gray-400 mb-4">2025 • New Album</p>
-                            <button class="px-6 py-2 bg-primary hover:bg-secondary transition-colors rounded">알림
-                                받기</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Band Section -->
         <section id="band" class="py-20 bg-dark">
@@ -812,7 +700,7 @@
                     <!-- Instrumental Video Section -->
                     <div class="mt-20 fade-in">
                         <h3 class="font-display text-3xl md:text-4xl text-center mb-8 text-gradient">
-                            INSTRUMENTAL
+                            MV
                         </h3>
                         <div class="max-w-4xl mx-auto bg-darker rounded-lg overflow-hidden shadow-2xl">
                             <video class="w-full h-auto" controls preload="metadata">
@@ -832,95 +720,6 @@
         <div id="secretBox" class="secret-box" role="button" tabindex="0">
             진호의 비밀상자 ※ 절대접근금지
         </div>
-
-        <!-- Discography Section -->
-        <section id="discography" class="py-20 bg-dark">
-            <div class="container mx-auto px-6">
-                <div class="max-w-6xl mx-auto">
-                    <h2 class="font-display text-4xl md:text-6xl text-center mb-16 text-gradient fade-in">
-                        DISCOGRAPHY
-                    </h2>
-
-                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                        <div class="fade-in">
-                            <div class="bg-darker rounded-lg overflow-hidden shadow-2xl video-wrapper">
-                                <div class="aspect-video">
-                                    <iframe class="w-full h-full rounded-lg"
-                                        src="https://www.youtube.com/embed/55Tez9WAsT8" title="하나비 - Latest Music Video"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                    </iframe>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="fade-in">
-                            <h3 class="font-display text-3xl text-primary mb-4">
-                                LATEST MUSIC VIDEO
-                            </h3>
-                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                                하나비의 최신 음악 비디오를 만나보세요. 우리의 시네마틱한 사운드와
-                                독특한 비주얼이 어우러진 감각적인 경험을 선사합니다.
-                            </p>
-                            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in">
-                                <a href="https://naver.me/xNn2sidZ" target="_blank"
-                                    class="px-8 py-4 bg-white text-darker hover:bg-gray-100 transition-all duration-300 rounded-full font-semibold transform hover:scale-105 hover:shadow-2xl inline-block">
-                                    최신 음악 듣기
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Album Gallery -->
-                    <div class="mt-16 fade-in">
-                        <h3 class="font-display text-3xl text-center mb-8 text-gradient">
-                            ALBUM GALLERY
-                        </h3>
-                        <div class="grid md:grid-cols-3 gap-8">
-                            <div class="album-item fade-in">
-                                <div
-                                    class="bg-darker rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                                    <div class="p-3">
-                                        <img src="images/album-cover-1.png" alt="하나비 앨범 표지"
-                                            class="w-full h-auto rounded clickable-image">
-                                    </div>
-                                    <div class="px-4 pb-4">
-                                        <p class="text-gray-400 text-sm">하나비의 정규 앨범 아트워크</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="album-item fade-in">
-                                <div
-                                    class="bg-darker rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                                    <div class="p-3">
-                                        <img src="images/앨범 소개 2.png" alt="하나비 앨범 소개"
-                                            class="w-full h-auto rounded clickable-image">
-                                    </div>
-                                    <div class="px-4 pb-4">
-                                        <p class="text-gray-400 text-sm">하나비의 음악 세계관과 컨셉</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="album-item fade-in">
-                                <div
-                                    class="bg-darker rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                                    <div class="p-3">
-                                        <img src="images/album-intro-3.png" alt="하나비 앨범 아트"
-                                            class="w-full h-auto rounded clickable-image">
-                                    </div>
-                                    <div class="px-4 pb-4">
-                                        <p class="text-gray-400 text-sm">시네마틱 사운드의 비주얼 표현</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Fan Engagement Section -->
         <section id="fanzone" class="py-20 bg-dark">
@@ -1144,21 +943,7 @@
                         <div class="text-center">
                             <h4 class="text-white font-semibold mb-4">하나비를 친구들에게 공유해주세요!</h4>
                             <div class="flex justify-center gap-4 flex-wrap">
-                                <button
-                                    class="share-btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
-                                    data-platform="facebook">
-                                    <span>📘</span> Facebook
-                                </button>
-                                <button
-                                    class="share-btn bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
-                                    data-platform="twitter">
-                                    <span>🐦</span> Twitter
-                                </button>
-                                <button
-                                    class="share-btn bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
-                                    data-platform="whatsapp">
-                                    <span>💬</span> WhatsApp
-                                </button>
+
                                 <button
                                     class="share-btn bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
                                     data-platform="copy">
@@ -1269,38 +1054,38 @@
 
                     <!-- Live Events & Ticket Booking -->
                     <div class="mb-16 fade-in">
-                        <h3 class="font-display text-4xl text-center text-gradient mb-12 animate-pulse">🎫 다가오는 공연</h3>
+                        <h3 class="font-display text-4xl text-center text-gradient mb-12">🎫 다가오는 공연</h3>
                         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                             <!-- Main Concert -->
                             <div
-                                class="bg-gradient-to-br from-darker to-primary/20 p-8 rounded-xl border-2 border-primary shadow-[0_0_30px_rgba(139,92,246,0.3)] transform hover:scale-105 transition-all duration-300 relative overflow-hidden group">
+                                class="bg-gradient-to-br from-darker to-gray-800 p-8 rounded-xl border-2 border-gray-600 shadow-xl relative overflow-hidden group opacity-90">
                                 <div
-                                    class="absolute top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg font-bold z-10">
-                                    D-DAY</div>
+                                    class="absolute top-0 right-0 bg-gray-600 text-white px-4 py-1 rounded-bl-lg font-bold z-10">
+                                    종료</div>
                                 <div
                                     class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 </div>
 
                                 <div class="relative z-10">
-                                    <h4 class="font-display text-3xl text-white mb-2 text-shadow-lg">두둥실 단독 공연</h4>
-                                    <p class="text-xl text-secondary font-semibold mb-6 flex items-center gap-2">
+                                    <h4 class="font-display text-3xl text-gray-300 mb-2">두둥실 단독 공연</h4>
+                                    <p class="text-xl text-gray-400 font-semibold mb-6 flex items-center gap-2">
                                         <span>📍</span> 안산
                                     </p>
 
                                     <div class="space-y-4 mb-8">
-                                        <div class="flex items-center gap-3 text-gray-300">
+                                        <div class="flex items-center gap-3 text-gray-400">
                                             <span class="text-2xl">📅</span>
                                             <span class="text-lg">2026년 1월 3일</span>
                                         </div>
-                                        <div class="flex items-center gap-3 text-gray-300">
+                                        <div class="flex items-center gap-3 text-gray-400">
                                             <span class="text-2xl">⏰</span>
                                             <span class="text-lg">오후 7시</span>
                                         </div>
                                     </div>
 
                                     <button
-                                        class="w-full py-4 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-primary/50 transition-all duration-300 transform hover:-translate-y-1">
-                                        🎫 예매하기 (Coming Soon)
+                                        class="w-full py-4 bg-gray-700 text-gray-400 rounded-lg font-bold text-lg cursor-not-allowed">
+                                        공연 종료 (Thank You)
                                     </button>
                                 </div>
                             </div>
