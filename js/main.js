@@ -284,7 +284,7 @@ async function createGuitarStrum() {
 
         // 성공 시 시각적 피드백
         const notification = document.createElement('div');
-        notification.innerHTML = '🎸 하나비에 오신 것을 환영합니다!';
+        notification.innerHTML = '🎸 두둥실에 오신 것을 환영합니다!';
         notification.style.cssText = `
                     position: fixed;
                     top: 20px;
@@ -719,7 +719,7 @@ function showLiveStreamModal() {
     modal.innerHTML = `
                 <div class="bg-darker border border-gray-700 rounded-lg max-w-4xl w-full mx-4 p-6">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-2xl font-semibold text-gradient">🔴 하나비 라이브 스트림</h3>
+                        <h3 class="text-2xl font-semibold text-gradient">🔴 두둥실 라이브 스트림</h3>
                         <button id="closeLiveModal" class="text-gray-400 hover:text-white text-2xl">&times;</button>
                     </div>
                     <div class="aspect-video bg-gray-900 rounded-lg mb-4 flex items-center justify-center">
@@ -797,6 +797,9 @@ function initializeUXEnhancements() {
     // 플로팅 액션 버튼
     initializeFloatingActionButton();
 
+    // Secret Box Initialization
+    initializeSecretBox();
+
     // 향상된 폼 피드백
     initializeFormEnhancements();
 
@@ -805,6 +808,74 @@ function initializeUXEnhancements() {
 
     // 스크롤투탑 기능
     initializeScrollToTop();
+}
+
+// Secret Box Logic
+function initializeSecretBox() {
+    const secretBox = document.getElementById('secretBox');
+    if (secretBox) {
+        secretBox.addEventListener('click', () => {
+            const answer = prompt('우리가 자주 가는 카페 이름은?');
+            // Normalize input to handle potential spaces or case if needed
+            if (answer && answer.trim() === '일분커피') {
+                // Create and show secret modal
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black/95 z-[10000] flex flex-col items-center justify-center p-4 overflow-y-auto';
+                modal.innerHTML = `
+                    <div class="relative max-w-4xl w-full bg-darker border border-primary/50 rounded-xl p-6 shadow-[0_0_50px_rgba(139,92,246,0.3)]">
+                        <button class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl transition-colors" id="closeSecretModal">&times;</button>
+                        <h2 class="font-display text-3xl md:text-4xl text-center mb-8 text-gradient animate-pulse">
+                            🤫 진호의 판도라 상자
+                        </h2>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
+                                <img src="images/jinho_secret_1.png" alt="진호 비밀사진 1" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                                    <span class="text-white font-display">Memory #001</span>
+                                </div>
+                            </div>
+                            <div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
+                                <img src="images/jinho_secret_2.png" alt="진호 비밀사진 2" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                                    <span class="text-white font-display">Memory #002</span>
+                                </div>
+                            </div>
+                            <div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
+                                <img src="images/jinho_secret_3.png" alt="진호 비밀사진 3" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                                    <span class="text-white font-display">Memory #003</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-gray-500 mt-8 text-sm italic">
+                            "이 사진들은 절대 외부로 유출되어서는 안 됩니다..."
+                        </p>
+                    </div>
+                `;
+
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+                // Close modal handler
+                const closeBtn = modal.querySelector('#closeSecretModal');
+                closeBtn.addEventListener('click', () => {
+                    document.body.removeChild(modal);
+                    document.body.style.overflow = '';
+                });
+
+                // Close on click outside
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        document.body.removeChild(modal);
+                        document.body.style.overflow = '';
+                    }
+                });
+
+            } else {
+                alert('🚫 접근 거부! 암호가 틀렸습니다.');
+            }
+        });
+    }
 }
 
 // 스크롤 진행률 표시
@@ -828,11 +899,11 @@ function initializeActiveNavigation() {
     const currentSection = document.getElementById('currentSection');
 
     const sectionNames = {
-        'hero': '🏠 홈 › 하나비와 함께하는 시네마틱 여정',
-        'story': '📖 스토리 › 밴드의 탄생과 음악적 철학',
-        'music': '🎵 음악 › 최신 앨범과 뮤직비디오',
-        'band': '👥 멤버 › 하나비를 이루는 다섯 명의 뮤지션',
-        'contact': '📞 연락처 › 공연 문의 및 팬 커뮤니티'
+        'hero': '홈 › 두둥실과 함께하는 음악 여정',
+        'story': '스토리 › 안산에서 시작된 우리의 이야기',
+        'music': '음악 › 요루시카의 감성을 담은 사운드',
+        'band': '멤버 › 두둥실을 이루는 다섯 명의 뮤지션',
+        'contact': '연락처 › 공연 문의 및 팬 커뮤니티'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -1310,10 +1381,15 @@ function initializeVideoModal() {
     const modalVideo = document.getElementById('modalVideo');
     const videoTitle = document.querySelector('.video-title');
 
-    // 진호 영상보기 버튼 클릭
+    // 피아노 오디오 객체 생성
+    const pianoAudio = new Audio('여름빛_gaudiolab_piano.mp3');
+    let isPianoMode = false;
+
+    // 진호 영상보기 버튼 클릭 (기타 -> 피아노로 대체)
     if (jinhoVideoBtn) {
         jinhoVideoBtn.addEventListener('click', function () {
-            openVideoModal('videos/진호_guitar_performance.mp4', '김진호 - 기타 연주 영상');
+            // 기존: openVideoModal('videos/진호_guitar_performance.mp4', '김진호 - 기타 연주 영상');
+            openVideoModal('피아노_영상_생성_완료.mp4', '김진호 - 피아노 연주 (Guitar 대체)');
         });
     }
 
@@ -1341,6 +1417,39 @@ function initializeVideoModal() {
             videoModal.classList.add('active');
             document.body.style.overflow = 'hidden';
             modalVideo.currentTime = 0;
+
+            // 피아노 모드 처리
+            if (videoSrc.includes('피아노')) {
+                isPianoMode = true;
+                modalVideo.muted = true; // 비디오 소리 끄기
+
+                // 오디오 싱크 맞추기
+                modalVideo.onplay = () => pianoAudio.play();
+                modalVideo.onpause = () => pianoAudio.pause();
+                modalVideo.onseeking = () => { pianoAudio.currentTime = modalVideo.currentTime; };
+                modalVideo.onseeked = () => { pianoAudio.currentTime = modalVideo.currentTime; };
+                modalVideo.onratechange = () => { pianoAudio.playbackRate = modalVideo.playbackRate; };
+                modalVideo.onwaiting = () => pianoAudio.pause();
+                modalVideo.onplaying = () => pianoAudio.play();
+                modalVideo.onended = () => {
+                    pianoAudio.pause();
+                    pianoAudio.currentTime = 0;
+                };
+
+                // 볼륨 동기화 (비디오가 음소거 상태라 볼륨 컨트롤이 애매하지만, 일단 시도)
+                // 사용자가 음소거를 풀면 비디오 소리가 나올 수 있으므로 주의 필요
+            } else {
+                isPianoMode = false;
+                modalVideo.muted = false;
+                modalVideo.onplay = null;
+                modalVideo.onpause = null;
+                modalVideo.onseeking = null;
+                modalVideo.onseeked = null;
+                modalVideo.onratechange = null;
+                modalVideo.onwaiting = null;
+                modalVideo.onplaying = null;
+                modalVideo.onended = null;
+            }
         }
     }
 
@@ -1374,6 +1483,13 @@ function initializeVideoModal() {
             if (modalVideo) {
                 modalVideo.pause();
                 modalVideo.currentTime = 0;
+            }
+
+            // 피아노 오디오 정지
+            if (isPianoMode) {
+                pianoAudio.pause();
+                pianoAudio.currentTime = 0;
+                isPianoMode = false;
             }
         }
     }
@@ -1760,12 +1876,27 @@ function initializeOpening() {
     const mainContent = document.getElementById('mainContent');
     let openingCompleted = false;
 
+    // 피아노 오디오 추가
+    const pianoAudio = new Audio('여름빛_gaudiolab_piano.mp3');
+    pianoAudio.loop = true; // 오프닝 동안 반복 재생
+
     // 오프닝 종료 함수
     async function endOpening() {
         if (openingCompleted) return;
         openingCompleted = true;
 
         console.log('🎬 Ending opening sequence...');
+
+        // 오디오 페이드 아웃 및 정지
+        const fadeOutInterval = setInterval(() => {
+            if (pianoAudio.volume > 0.1) {
+                pianoAudio.volume -= 0.1;
+            } else {
+                clearInterval(fadeOutInterval);
+                pianoAudio.pause();
+                pianoAudio.currentTime = 0;
+            }
+        }, 100);
 
         // 오버레이 페이드 아웃
         openingOverlay.classList.add('hidden');
@@ -1794,65 +1925,69 @@ function initializeOpening() {
         }, 2000);
     }
 
-    // 영상 종료 시 자동으로 메인 페이지로
-    openingVideo.addEventListener('ended', () => {
-        console.log('🎬 Opening video ended');
-        endOpening();
-    });
+    // 영상이 끝나면 오프닝 종료 (또는 클릭 시)
+    if (openingVideo) {
+        openingVideo.addEventListener('ended', endOpening);
+        openingOverlay.addEventListener('click', endOpening);
 
-    // 영상 로드 에러 처리
-    openingVideo.addEventListener('error', (e) => {
-        console.error('❌ Opening video error:', e);
-        endOpening();
-    });
+        // 비디오와 오디오 싱크
+        openingVideo.addEventListener('play', () => {
+            pianoAudio.play().catch(e => console.log('Audio autoplay prevented:', e));
+        });
+        openingVideo.addEventListener('pause', () => pianoAudio.pause());
 
-    // 영상 재생 시작 로그
-    openingVideo.addEventListener('play', () => {
-        console.log('▶️ Opening video started playing with sound');
-    });
-
-    // 영상 볼륨 확인
-    openingVideo.addEventListener('loadedmetadata', () => {
-        console.log('📹 Opening video metadata loaded');
-        console.log('🔊 Video muted:', openingVideo.muted);
-        console.log('🔊 Video volume:', openingVideo.volume);
-
-        // 볼륨 설정
-        openingVideo.volume = 1.0;
-        openingVideo.muted = false;
-    });
-
-    // 비디오가 로드되면 재생 시도
-    openingVideo.addEventListener('canplay', () => {
-        console.log('📹 Opening video ready to play');
+        // 강제로 음소거 유지 (사용자 요구사항: 영상 소리는 안나와야 함)
+        openingVideo.addEventListener('volumechange', () => {
+            if (!openingVideo.muted) {
+                console.log('🔇 Enforcing mute on opening video');
+                openingVideo.muted = true;
+            }
+        });
 
         // 사용자 인터랙션 후 재생 (브라우저 정책)
         const playVideo = async () => {
             try {
-                openingVideo.muted = false;
-                openingVideo.volume = 1.0;
+                openingVideo.muted = true; // 비디오는 무조건 음소거 (피아노 소리 사용)
                 await openingVideo.play();
-                console.log('✅ Video playing with sound');
-            } catch (error) {
-                console.warn('⚠️ Autoplay with sound prevented, trying muted:', error);
-                // 소리가 안되면 일단 음소거로 재생
-                openingVideo.muted = true;
-                await openingVideo.play();
-                console.log('⚠️ Video playing muted - click to unmute');
 
-                // 클릭하면 소리 켜기
-                const unmute = () => {
-                    openingVideo.muted = false;
-                    openingVideo.volume = 1.0;
-                    console.log('🔊 Video unmuted');
-                    document.removeEventListener('click', unmute);
-                };
-                document.addEventListener('click', unmute, { once: true });
+                // 오디오 재생 시도
+                try {
+                    await pianoAudio.play();
+                    console.log('✅ Piano audio playing');
+                } catch (audioError) {
+                    console.warn('⚠️ Audio autoplay prevented, waiting for interaction:', audioError);
+
+                    // 클릭하면 소리 켜기 (오디오 재생)
+                    const startAudio = () => {
+                        pianoAudio.play();
+                        console.log('🔊 Piano audio started by interaction');
+                        document.removeEventListener('click', startAudio);
+                    };
+                    document.addEventListener('click', startAudio, { once: true });
+                }
+            } catch (error) {
+                console.warn('Video playback failed initially:', error);
+                // 소리가 안되면 일단 음소거로 재생 (이미 muted=true지만 확실하게)
+                openingVideo.muted = true;
+                try {
+                    await openingVideo.play();
+                    console.log('⚠️ Video playing muted - click to start audio');
+
+                    // 클릭하면 피아노 오디오 재생
+                    const startAudio = () => {
+                        pianoAudio.play();
+                        console.log('🔊 Piano audio started by interaction (fallback)');
+                        document.removeEventListener('click', startAudio);
+                    };
+                    document.addEventListener('click', startAudio, { once: true });
+                } catch (e) {
+                    console.error('Video playback failed even muted:', e);
+                }
             }
         };
 
         playVideo();
-    });
+    }
 }
 
 // DOM 로드 시 오프닝 초기화
@@ -2305,14 +2440,16 @@ function initializePracticeLog() {
 
     // Configuration
     const startDate = new Date('2025-05-03'); // First Saturday of May 2025
-    const endDate = new Date('2025-12-31');
     const today = new Date();
+    // Show up to 3 months in the future
+    const endDate = new Date(today);
+    endDate.setMonth(today.getMonth() + 3);
+
     const exceptionDate = '2025-11-22'; // Vocalist's Wedding
 
     let currentDate = new Date(startDate);
     let totalPractices = 0;
     let currentStreak = 0;
-    let streakBroken = false;
 
     // Generate weeks
     const weeks = [];
@@ -2321,24 +2458,20 @@ function initializePracticeLog() {
         currentDate.setDate(currentDate.getDate() + 7);
     }
 
-    // Calculate stats first (backwards for streak)
-    const pastWeeks = weeks.filter(date => date < today);
-    for (let i = pastWeeks.length - 1; i >= 0; i--) {
-        const dateStr = pastWeeks[i].toISOString().split('T')[0];
-        if (dateStr === exceptionDate) {
-            // Exception doesn't break streak if authorized, but here user said "streak"
-            // Let's assume it doesn't count towards streak but doesn't reset it to 0?
-            // Or maybe it breaks it? User said "never missed until now".
-            // Since Nov 22 is tomorrow, the streak is valid up to today.
-        } else {
-            if (!streakBroken) currentStreak++;
+    // Calculate stats
+    // We assume perfect attendance for every Saturday in the past
+    weeks.forEach(date => {
+        if (date <= today) {
+            totalPractices++;
+            currentStreak++;
         }
-    }
+    });
 
     // Render Grid
+    grid.innerHTML = ''; // Clear existing
     weeks.forEach(date => {
         const dateStr = date.toISOString().split('T')[0];
-        const isPast = date < today;
+        const isPast = date <= today;
         const isException = dateStr === exceptionDate;
 
         const weekEl = document.createElement('div');
@@ -2351,7 +2484,6 @@ function initializePracticeLog() {
         } else if (isPast) {
             weekEl.classList.add('bg-primary', 'shadow-[0_0_10px_rgba(139,92,246,0.5)]');
             weekEl.setAttribute('data-status', 'completed');
-            totalPractices++;
         } else {
             weekEl.classList.add('bg-gray-800', 'border', 'border-gray-700');
             weekEl.setAttribute('data-status', 'planned');
@@ -2361,25 +2493,27 @@ function initializePracticeLog() {
         const tooltip = document.createElement('div');
         tooltip.className = 'absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 border border-gray-700';
 
-        let statusText = isException ? '💍 보컬 결혼식' : (isPast ? '✅ 합주 완료' : '📅 합주 예정');
-        tooltip.textContent = `${date.getMonth() + 1}월 ${date.getDate()}일: ${statusText}`;
+        let statusText = isException ? '💍 보컬 결혼식 (특별 휴무)' : (isPast ? '✅ 합주 완료' : '📅 합주 예정');
+        tooltip.textContent = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}: ${statusText}`;
 
         weekEl.appendChild(tooltip);
         grid.appendChild(weekEl);
     });
 
     // Update Stats
-    totalPracticesEl.textContent = totalPractices;
+    if (totalPracticesEl) totalPracticesEl.textContent = totalPractices;
 
     // Animate Streak Counter
-    let count = 0;
-    const interval = setInterval(() => {
-        if (count >= currentStreak) {
-            clearInterval(interval);
-            currentStreakEl.textContent = currentStreak + '주';
-        } else {
-            count++;
-            currentStreakEl.textContent = count;
-        }
-    }, 50);
+    if (currentStreakEl) {
+        let count = 0;
+        const interval = setInterval(() => {
+            if (count >= currentStreak) {
+                clearInterval(interval);
+                currentStreakEl.textContent = currentStreak + '주';
+            } else {
+                count++;
+                currentStreakEl.textContent = count;
+            }
+        }, 50);
+    }
 }
