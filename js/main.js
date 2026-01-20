@@ -827,23 +827,29 @@ function initializeSecretBox() {
                         <h2 class="font-display text-3xl md:text-4xl text-center mb-8 text-gradient animate-pulse">
                             🤫 진호의 판도라 상자
                         </h2>
-                        <div class="grid md:grid-cols-3 gap-6">
+                        <div class="grid grid-cols-2 gap-4">
                             <div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
-                                <img src="images/jinho_secret_1.png" alt="진호 비밀사진 1" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                                <img src="images/진호판도라1.jpg" alt="진호 비밀사진 1" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                                     <span class="text-white font-display">Memory #001</span>
                                 </div>
                             </div>
                             <div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
-                                <img src="images/jinho_secret_2.png" alt="진호 비밀사진 2" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                                <img src="images/진호판도라2.png" alt="진호 비밀사진 2" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                                     <span class="text-white font-display">Memory #002</span>
                                 </div>
                             </div>
                             <div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
-                                <img src="images/jinho_secret_3.png" alt="진호 비밀사진 3" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                                <img src="images/진호판도라3.jpg" alt="진호 비밀사진 3" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                                     <span class="text-white font-display">Memory #003</span>
+                                </div>
+                            </div>
+                            <div class="group relative aspect-[3/4] overflow-hidden rounded-lg">
+                                <img src="images/진호판도라4.jpg" alt="진호 비밀사진 4" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                                    <span class="text-white font-display">Memory #004</span>
                                 </div>
                             </div>
                         </div>
