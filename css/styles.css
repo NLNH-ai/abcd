@@ -1742,6 +1742,7 @@ body.light-mode .member-card:hover {
     justify-content: center;
     opacity: 1;
     transition: opacity 1s ease-out;
+    overflow: hidden;
 }
 
 .opening-overlay.hidden {
@@ -1752,7 +1753,31 @@ body.light-mode .member-card:hover {
 .opening-video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* 비율 유지하면서 전체 표시 */
+    background: #000;
+}
+
+/* 모바일에서 오프닝 영상 최적화 */
+@media (max-width: 640px) {
+    .opening-video {
+        object-fit: contain; /* 모바일에서도 비율 유지 */
+    }
+}
+
+/* 가로가 긴 화면에서 최적화 */
+@media (min-aspect-ratio: 16/9) {
+    .opening-video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* 세로가 긴 화면에서 최적화 */
+@media (max-aspect-ratio: 16/9) {
+    .opening-video {
+        width: auto;
+        height: 100%;
+    }
 }
 
 /* 메인 컨텐츠 초기 숨김 */
