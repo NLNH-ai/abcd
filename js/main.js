@@ -2596,13 +2596,12 @@ function initializeSecretBox() {
                     <div class="grid gap-6">
                         <div class="bg-darker rounded-xl p-6 border border-primary/30 hover:border-primary transition-all">
                             <img src="images/진호다크로드.jpg" alt="진호 다크로드" class="w-full rounded-lg mb-4 shadow-2xl">
-                            <p class="text-gray-300 text-lg">진호의 숨겨진 모습...</p>
+                            <p class="text-gray-300 text-lg">진호의 사진이보고싶으시다면</p>
                         </div>
                     </div>
 
                     <div class="mt-8 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                        <p class="text-sm text-gray-400">문의사항이 있으시면</p>
-                        <p class="text-primary font-semibold">admin 관리자에게 개인 문의주세요</p>
+                        <p class="text-primary font-semibold">admin 관리자에게 몰래물어봐주세요</p>
                     </div>
                 </div>
             `;
