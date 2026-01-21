@@ -1245,6 +1245,7 @@ function initializeApp() {
     initializeContentManagement();
     initializeUserJourney();
     initializePracticeLog();
+    initializeSecretBox();
 }
 
 // 네비게이션 초기화
@@ -2521,5 +2522,107 @@ function initializePracticeLog() {
                 currentStreakEl.textContent = count;
             }
         }, 50);
+    }
+}
+
+// Secret Box Functionality
+function initializeSecretBox() {
+    const secretBox = document.getElementById('secretBox');
+    const secretModal = document.getElementById('secretModal');
+    const secretPasswordInput = document.getElementById('secretPassword');
+    const secretSubmitBtn = document.getElementById('secretSubmitBtn');
+    const secretClose = document.getElementById('secretClose');
+    const secretContent = document.getElementById('secretContent');
+    const secretPasswordSection = document.getElementById('secretPasswordSection');
+
+    if (!secretBox || !secretModal) return;
+
+    let attempts = 0;
+    const maxAttempts = 3;
+
+    // Open modal when clicking secret box
+    secretBox.addEventListener('click', () => {
+        secretModal.classList.add('active');
+        secretPasswordInput.focus();
+    });
+
+    // Close modal
+    secretClose.addEventListener('click', () => {
+        closeSecretModal();
+    });
+
+    // Close on backdrop click
+    secretModal.addEventListener('click', (e) => {
+        if (e.target === secretModal) {
+            closeSecretModal();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && secretModal.classList.contains('active')) {
+            closeSecretModal();
+        }
+    });
+
+    function closeSecretModal() {
+        secretModal.classList.remove('active');
+        secretPasswordInput.value = '';
+        secretPasswordSection.style.display = 'block';
+        secretContent.style.display = 'none';
+        attempts = 0;
+    }
+
+    // Submit password
+    secretSubmitBtn.addEventListener('click', checkPassword);
+    secretPasswordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            checkPassword();
+        }
+    });
+
+    function checkPassword() {
+        const password = secretPasswordInput.value.trim();
+        const correctPassword = '일분커피';
+
+        if (password === correctPassword) {
+            // Correct password - show secret content
+            secretPasswordSection.style.display = 'none';
+            secretContent.style.display = 'block';
+            secretContent.innerHTML = `
+                <div class="text-center space-y-6">
+                    <h3 class="text-3xl font-bold text-gradient mb-8">🎸 진호의 판도라 박스</h3>
+
+                    <div class="grid gap-6">
+                        <div class="bg-darker rounded-xl p-6 border border-primary/30 hover:border-primary transition-all">
+                            <img src="images/진호다크로드.jpg" alt="진호 다크로드" class="w-full rounded-lg mb-4 shadow-2xl">
+                            <p class="text-gray-300 text-lg">진호의 숨겨진 모습...</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+                        <p class="text-sm text-gray-400">문의사항이 있으시면</p>
+                        <p class="text-primary font-semibold">admin 관리자에게 개인 문의주세요</p>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Wrong password
+            attempts++;
+            secretPasswordInput.value = '';
+            secretPasswordInput.classList.add('shake', 'form-error');
+
+            setTimeout(() => {
+                secretPasswordInput.classList.remove('shake');
+            }, 500);
+
+            if (attempts >= maxAttempts) {
+                showNotification('접근 횟수 초과! 잠시 후 다시 시도해주세요.', 'error');
+                closeSecretModal();
+            } else {
+                showNotification(`암호가 틀렸습니다. (${attempts}/${maxAttempts})`, 'error');
+                secretPasswordInput.classList.remove('form-error');
+            }
+        }
     }
 }

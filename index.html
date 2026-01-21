@@ -703,10 +703,12 @@
                             MV
                         </h3>
                         <div class="max-w-4xl mx-auto bg-darker rounded-lg overflow-hidden shadow-2xl">
-                            <video class="w-full h-auto" controls preload="metadata">
-                                <source src="videos/videos_inst.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                            <div class="video-wrapper-inline">
+                                <video class="w-full h-full object-contain" controls preload="metadata">
+                                    <source src="videos/videos_inst.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
                         </div>
                         <p class="text-center text-gray-400 mt-4 font-display">
                             두둥실 - Instrumental Version
@@ -1308,6 +1310,39 @@
                 <div class="image-info">
                     <h3 id="modalName" class="image-title"></h3>
                     <p id="modalRole" class="image-role"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secret Box Modal -->
+        <div id="secretModal" class="image-modal">
+            <div class="image-modal-content max-w-2xl">
+                <button class="image-close" id="secretClose">&times;</button>
+
+                <!-- Password Section -->
+                <div id="secretPasswordSection" class="text-center p-8">
+                    <h2 class="text-3xl font-bold text-gradient mb-4">🔒 비밀상자</h2>
+                    <p class="text-gray-400 mb-8">암호를 입력하세요</p>
+                    <div class="space-y-4">
+                        <input
+                            type="text"
+                            id="secretPassword"
+                            placeholder="우리가 자주 가는 카페 이름은?"
+                            class="w-full px-6 py-3 bg-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none text-center text-lg"
+                            autocomplete="off"
+                        >
+                        <button
+                            id="secretSubmitBtn"
+                            class="w-full px-8 py-3 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all duration-300 rounded-lg text-white font-semibold text-lg"
+                        >
+                            확인
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Secret Content (hidden by default) -->
+                <div id="secretContent" class="p-8" style="display: none;">
+                    <!-- Content will be dynamically inserted by JavaScript -->
                 </div>
             </div>
         </div>
